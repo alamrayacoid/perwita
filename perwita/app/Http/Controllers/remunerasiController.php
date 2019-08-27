@@ -114,7 +114,11 @@ class remunerasiController extends Controller
               $e->on('mp_divisi', '=', 'md_id');
             })
             ->select('p_id','mp_id','p_name','md_name', 'mp_mitra_nik', 'p_nip', 'p_nip_mitra', DB::Raw("coalesce(p_jabatan, '-') as p_jabatan"))
-            ->whereRaw("mp_status = 'Aktif' AND mp_isapproved = 'Y' AND p_nip LIKE '%".$keyword."%'")
+            ->whereRaw("mp_status = 'Aktif' AND mp_isapproved = 'Y'")
+            ->where(function($q) use ($keyword){
+              $q->orWhere('p_nip', 'like', "%".$keyword."%");
+              $q->orWhere('p_name', 'like', "%".$keyword."%");
+            })
             ->LIMIT(20)
             ->get();
 

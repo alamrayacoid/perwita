@@ -65,7 +65,8 @@ class mitraContractController extends Controller
                 , 'd_mitra.m_name',
                 DB::raw('@rownum  := @rownum  + 1 AS number')
             )
-            ->orderBy('d_mitra_contract.mc_insert', 'DESC')->where('mc_need', '>', DB::raw('mc_fulfilled'))
+            ->where('mc_need', '>', DB::raw('mc_fulfilled'))
+            ->orderBy('d_mitra_contract.mc_insert', 'DESC')
             ->where('mc_isapproved', 'Y')
             ->get();
 

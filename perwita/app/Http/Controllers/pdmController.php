@@ -110,7 +110,7 @@ class pdmController extends Controller
                 $q->on('md_mitra', '=', 'mp_mitra')
                     ->on('md_id', '=', 'mp_divisi');
             })
-            ->select('p_name', 'mp_mitra_nik', 'mp_workin_date', 'm_name', 'md_name', 'mp_id', 'p_id')
+            ->select('p_name', 'mp_mitra_nik', DB::raw('date_format(mp_workin_date, "%d-%m-%Y") as mp_workin_date'), 'm_name', 'md_name', 'mp_id', 'p_id')
             ->where('mp_isapproved', 'Y')
             ->where('mp_status', 'Aktif')
             ->get();
@@ -123,7 +123,7 @@ class pdmController extends Controller
                 $q->on('md_mitra', '=', 'mp_mitra')
                     ->on('md_id', '=', 'mp_divisi');
             })
-            ->select('p_name', 'mp_mitra_nik', 'mp_workin_date', 'm_name', 'md_name', 'mp_id', 'p_id')
+            ->select('p_name', 'mp_mitra_nik', DB::raw('date_format(mp_workin_date, "%d-%m-%Y") as mp_workin_date'), 'm_name', 'md_name', 'mp_id', 'p_id')
             ->where('mp_mitra', '=', $mitra)
             ->where('mp_isapproved', 'Y')
             ->where('mp_status', 'Aktif')
@@ -138,7 +138,7 @@ class pdmController extends Controller
                 $q->on('md_mitra', '=', 'mp_mitra')
                     ->on('md_id', '=', 'mp_divisi');
             })
-            ->select('p_name', 'mp_mitra_nik', 'mp_workin_date', 'm_name', 'md_name', 'mp_id', 'p_id')
+            ->select('p_name', 'mp_mitra_nik', DB::raw('date_format(mp_workin_date, "%d-%m-%Y") as mp_workin_date'), 'm_name', 'md_name', 'mp_id', 'p_id')
             ->where('mp_mitra', '=', $mitra)
             ->where('mp_divisi', '=', $divisi)
             ->where('mp_isapproved', 'Y')

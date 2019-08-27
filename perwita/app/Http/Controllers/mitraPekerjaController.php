@@ -128,6 +128,7 @@ class mitraPekerjaController extends Controller
                 DB::raw('@rownum  := @rownum  + 1 AS number')
             )
             ->whereRaw('mc_need > mc_fulfilled')
+            ->where('mc_isapproved', 'Y')
             ->groupBy('mc_no')
             ->orderBy('d_mitra_contract.mc_date', 'DESC')
             ->get();

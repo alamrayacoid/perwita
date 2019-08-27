@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <label class="col-lg-2 control-label">No NIK</label>
                             <div class="col-lg-9">
-                                <input type="text" id='nonik' placeholder="No NIK Pekerja" style="text-transform:uppercase" class="form-control" name="nonik" value="">
+                                <input type="text" id='nonik' placeholder="No NIK Pekerja/Nama Pekerja" style="text-transform:uppercase" class="form-control" name="nonik" value="">
                             </div>
                         </div>
                         <div class="form-group">
