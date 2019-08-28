@@ -44,7 +44,7 @@ class aksesUserController extends Controller
             ->addColumn('aksi', function ($user){
                 if ($user->j_id == 1 || $user->j_id == 2){
                     return '<div class="">
-                        <button style="margin-left:5px;" title="Akses" type="button" class="btn btn-primary btn-xs" onclick="akses(\'' . Crypt::encrypt($user->m_id) . '\')" disabled><i class="glyphicon glyphicon-wrench"></i></button>
+                        <button style="margin-left:5px;" title="Akses" type="button" class="btn btn-primary btn-xs" onclick="akses(\'' . Crypt::encrypt($user->m_id) . '\')" ><i class="glyphicon glyphicon-wrench"></i></button>
                      </div>';
                 } else {
                     return '<div class="">
@@ -89,93 +89,27 @@ class aksesUserController extends Controller
             $update = $request->update;
             $delete = $request->delete;
             $id = Crypt::decrypt($request->id);
-
-            $akses = DB::table('d_access')
-                ->select('a_id')
-                ->get();
-
-            $cek = DB::table('d_mem_access')
+            $id_akses = $request->idaccess;
+            
+            DB::table('d_mem_access')
                 ->where('ma_mem', '=', $id)
-                ->get();
+                ->delete();
 
-            if (count($cek) > 0){
-                //== update data
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->update([
-                        'ma_read' => 'N',
-                        'ma_insert' => 'N',
-                        'ma_update' => 'N',
-                        'ma_delete' => 'N'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $read)
-                    ->update([
-                        'ma_read' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $insert)
-                    ->update([
-                        'ma_insert' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $update)
-                    ->update([
-                        'ma_update' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $delete)
-                    ->update([
-                        'ma_delete' => 'Y'
-                    ]);
-            } else {
-                //== create data
-                $addAkses = [];
-                for ($i = 0; $i < count($akses); $i++){
-                    $temp = [
-                        'ma_mem' => $id,
-                        'ma_access' => $akses[$i]->a_id
-                    ];
-                    array_push($addAkses, $temp);
-                }
-                DB::table('d_mem_access')->insert($addAkses);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $read)
-                    ->update([
-                        'ma_read' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $insert)
-                    ->update([
-                        'ma_insert' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $update)
-                    ->update([
-                        'ma_update' => 'Y'
-                    ]);
-
-                DB::table('d_mem_access')
-                    ->where('ma_mem', '=', $id)
-                    ->whereIn('ma_access', $delete)
-                    ->update([
-                        'ma_delete' => 'Y'
-                    ]);
+            $insertTable = [];
+            for ($i = 0; $i < count($id_akses); $i++) {
+                $temp = array(
+                    'ma_mem' => $id,
+                    'ma_access' => $id_akses[$i],
+                    'ma_read' => $read[$i],
+                    'ma_insert' => $insert[$i],
+                    'ma_update' => $update[$i],
+                    'ma_delete' => $delete[$i]
+                );
+                array_push($insertTable, $temp);
             }
+
+            DB::table('d_mem_access')
+                ->insert($insertTable);
 
             DB::commit();
             return response()->json([

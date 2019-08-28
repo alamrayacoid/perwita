@@ -34,20 +34,23 @@ class phkController extends Controller
               $e->on('mp_divisi', '=', 'md_id');
             })
             ->select('p_id','mp_id','p_name','md_name', 'mp_mitra_nik', 'p_nip', 'p_nip_mitra', DB::Raw("coalesce(p_jabatan, '-') as p_jabatan"))
-            ->whereRaw("mp_status = 'Aktif' AND mp_isapproved = 'Y' AND p_nip LIKE '%".$keyword."%' OR p_name LIKE '%".$keyword."%'")
+            ->whereRaw("mp_status = 'Aktif' AND mp_isapproved = 'Y'")
+            ->where(function($q) use ($keyword){
+              $q->orWhere('p_nip', 'LIKE', '%'.$keyword.'%');
+              $q->orWhere('p_name', 'LIKE', '%'.$keyword.'%');
+            })
             ->LIMIT(20)
             ->get();
 
-            for ($i=0; $i < count($data); $i++) {
-              $jabatan[] = DB::table('d_jabatan_pelamar')
-                      ->where('jp_id', $data[$i]->p_jabatan)
-                      ->get();
-            }
+            // for ($i=0; $i < count($data); $i++) {
+            //   $jabatan[] = DB::table('d_jabatan_pelamar')
+            //           ->where('jp_id', $data[$i]->p_jabatan)
+            //           ->get();
+            // }
 
-            if ($data == null) {
+            if (count($data) < 1) {
                 $results[] = ['id' => null, 'label' => 'Tidak ditemukan data terkait'];
             } else {
-
                 foreach ($data as $query) {
                     $results[] = ['id' => $query->p_id, 'label' => $query->p_name . ' (' . $query->p_nip . ')'];
                 }
@@ -58,35 +61,35 @@ class phkController extends Controller
 
     public function getdata(Request $request){
       $data = DB::table('d_pekerja')
-             ->select('p_name', 'p_jabatan', DB::raw("coalesce(p_gaji_pokok, '') as bpjskes"), DB::raw("COALESCE(p_gaji_pokok, '-') as jht"), DB::raw("COALESCE(p_gaji_pokok, '-') as pensiun"))
-             ->where('p_id',$request->id)
-             ->get();
+        ->select('p_name', 'p_jabatan', DB::raw("coalesce(p_gaji_pokok, '') as bpjskes"), DB::raw("COALESCE(p_gaji_pokok, '-') as jht"), DB::raw("COALESCE(p_gaji_pokok, '-') as pensiun"))
+        ->where('p_id',$request->id)
+        ->get();
 
-             $jabatan = DB::table('d_jabatan_pelamar')
-                     ->where('jp_id', $data[0]->p_jabatan)
-                     ->get();
+      $jabatan = DB::table('d_jabatan_pelamar')
+        ->where('jp_id', $data[0]->p_jabatan)
+        ->get();
 
-             if (count($jabatan) > 0) {
-               $data[0]->p_jabatan = $jabatan[0]->jp_name;
-             } else {
-               $data[0]->p_jabatan = '-';
-             }
+      if (count($jabatan) > 0) {
+        $data[0]->p_jabatan = $jabatan[0]->jp_name;
+      } else {
+        $data[0]->p_jabatan = '-';
+      }
 
        $percentage = 1;
 
-       $new_width = ($percentage / 100) * $data[0]->bpjskes;
+       $new_width = ($percentage / 100) * (int)$data[0]->bpjskes;
 
        $data[0]->bpjskes = $new_width;
 
        $percentage = 2;
 
-       $new_width = ($percentage / 100) * $data[0]->jht;
+       $new_width = ($percentage / 100) * (int)$data[0]->jht;
 
        $data[0]->jht = $new_width;
 
        $percentage = 1;
 
-       $new_width = ($percentage / 100) * $data[0]->pensiun;
+       $new_width = ($percentage / 100) * (int)$data[0]->pensiun;
 
        $data[0]->pensiun = $new_width;
 

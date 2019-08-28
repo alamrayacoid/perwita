@@ -28,12 +28,15 @@ class pegawaiphkController extends Controller
       $data = DB::table('d_pegawai')
                 ->leftjoin('d_jabatan', 'j_id', '=', 'p_jabatan')
                 ->select('p_name', 'j_name', 'p_nip', 'p_id')
-                ->where('p_nip', 'LIKE', '%'.$keyword.'%')
+                ->where(function($q) use ($keyword){
+                  $q->orWhere('p_nip', 'LIKE', '%'.$keyword.'%');
+                  $q->orWhere('p_name', 'LIKE', '%'.$keyword.'%');
+                })
                 ->groupBy('p_id')
                 ->limit(20)
                 ->get();
 
-            if ($data == null) {
+            if (count($data) < 1) {
                 $results[] = ['id' => null, 'label' => 'Tidak ditemukan data terkait'];
             } else {
 
