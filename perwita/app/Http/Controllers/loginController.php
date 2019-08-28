@@ -36,7 +36,7 @@ class loginController extends Controller
     public function authenticate(Request $request)
     {
         return DB::transaction(function () use ($request) {
-            $request->username = nama($request->username);
+            $request->username = $request->username;
 
             $rules = array(
                 'username' => 'required', // make sure the email is an actual email

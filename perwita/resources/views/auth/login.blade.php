@@ -102,8 +102,7 @@
             buttonLadda.ladda('start');
             $.ajax({
                 url: baseUrl + '/login',
-                type: 'get',
-                timeout: 10000,
+                type: 'post',
                 data: $('#login-form').serialize(),
                 dataType: 'json',
                 success: function (response) {
