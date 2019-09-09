@@ -67,7 +67,7 @@ class pekerjaController extends Controller
                 ->get();
         }
 
-        $pekerja = collect($pekerja);
+        //$pekerja = collect($pekerja);
 
         return Datatables::of($pekerja)
             ->editColumn('pm_status', function ($pekerja) {
@@ -84,11 +84,22 @@ class pekerjaController extends Controller
 
     public function dataCalon()
     {
-        DB::statement(DB::raw('set @rownum=0'));
+        //DB::statement(DB::raw('set @rownum=0'));
+        $pekerja = DB::table('d_pekerja as p')
+            ->join('d_pekerja_mutation as pm', 'p_id', '=', 'pm_pekerja')
+            ->select('p_id', 'p_name', 'p_sex', 'p_address', 'p_hp', 'pm_detailid', 'pm_status')
+            ->where('pm_detailid', DB::raw('(select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id)'))
+            ->where('pm_status', '=', 'Calon')
+            ->orderBy('p_name')
+            ->get();
 
-        $pekerja = DB::select("select @rownum := @rownum + 1 as number, p_id, p_name, p_sex, p_address, p_hp, pm_detailid, pm_status from d_pekerja p join d_pekerja_mutation pm on p_id = pm_pekerja cross join (select @rownum := 0) r where pm_detailid = (select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id) and pm_status = 'Calon' order by p_name");
+        // $pekerja = DB::select("select @rownum := @rownum + 1 as number, p_id, p_name, p_sex, p_address, p_hp, pm_detailid, pm_status 
+        //     from d_pekerja p join d_pekerja_mutation pm on p_id = pm_pekerja 
+        //     cross join (select @rownum := 0) r 
+        //     where pm_detailid = (select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id) 
+        //     and pm_status = 'Calon' order by p_name");
 
-        $pekerja = collect($pekerja);
+        //$pekerja = collect($pekerja);
 
         return Datatables::of($pekerja)
             ->editColumn('pm_status', function ($pekerja) {

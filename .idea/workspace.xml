@@ -2,7 +2,525 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f6ccce9-2a8a-4496-87f2-71f0afb09689" name="Default Changelist" comment="roliz">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Console/Commands/Inspire.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Events/Event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Helpers/login.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/AksesUser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/AuthController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/PasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/ItemController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/JabatanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/MouController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PembayaranController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PembelianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PenerimaanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PenerimaanPekerjaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PenjualanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/PerusahaanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/RencanaPembelian.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/ReturnPembelianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/StockDataController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/StockMutController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/StockOpnameController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/SuratPeringatanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/aksesGroupController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/aksesUserController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvallphkController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalmitraController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalmitrapekerjaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalopnameController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpegawaiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpegawaiphkController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpegawaipromosiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpegawairemunerasiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpelamarController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpembelianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpenerimaanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpenerimaanpengeluaranseragamController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpenerimaanreturnController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpenerimaanseragamController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpenjualanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalpromosiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalremunerasiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalrencanapembelianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalreturnpembelianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/approvalspController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/arusKasController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/bpjsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/bpjskesehatanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/bpjsketenagakerjaanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/calonPekerjaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/d_comp_coaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/d_comp_transController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/dapanController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/dashboardController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/entri_transaksiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/faskesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/gajipokokController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/itemSupplierController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/labaRugiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/loginController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/manajemenPenggunaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/mitraContractController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/mitraController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/mitraDivisiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/mitraPekerjaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/mitraPekerjaController.php.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/neracaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pdmController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pegawaiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pegawaiphkController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pegawaipromosiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pegawairemunerasiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pekerjaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pekerjapjtkiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/pembagianseragamController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/penerimaanPengeluaranController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/penerimaanpengeluaranseragamController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/penerimaanreturnController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/penggajianController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/perwitaController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/phkController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/potonganController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/profilController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/promosiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/rbhController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/rekeningController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/remunerasiController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/seragamController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/supplierController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/suratController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Controllers/tunjanganController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/EncryptCookies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/RedirectIfAuthenticated.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/SessionTimeout.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/access.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/emptySessionComp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/fillSession.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Middleware/step.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Requests/Request.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/Requests/validateRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Http/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Jobs/Job.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Listeners/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Policies/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Providers/BroadcastServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/Providers/RouteServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/aksesGroup.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/bpjs.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_access.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_calon_pekerja.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_comp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_comp_coa.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_comp_trans.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_group.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_group_access.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_item_dt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_item_supplier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_jurnal.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_jurnal_dt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mem.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mem_access.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mitra.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mitra_contract.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mitra_item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mitra_mou.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_mitra_pekerja.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_notifikasi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pegawai.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_child.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_keterampilan.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_language.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_mutation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_pengalaman.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_referensi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_pekerja_sim.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_promosi_demosi.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_purchase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_purchase_approval.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_purchase_dt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_sales.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_sales_dt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_seragam.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_seragam_pekerja.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_seragam_pekerja_dt.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_size.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_stock.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_stock_mutation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/d_supplier.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/doto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/mMember.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/m_trans_cat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/pagination/CustomPresenter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/pdm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/surat.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/app/updateso.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/bootstrap/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/bootstrap/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/broadcasting.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/compile.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/dompdf.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/filesystems.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/mail.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/queue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/services.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/session.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/snappy.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/config/view.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/factories/ModelFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/migrations/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/seeds/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/database/seeds/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/assets/sass/app.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/en/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/en/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/en/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/id/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/id/pagination.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/id/passwords.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/lang/id/validation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/PHK/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/PHK/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/PHK/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalmitra/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalmitra/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalmitrapekerja/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalmitrapekerja/pekerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalmitrapekerja/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalopname/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpegawai/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpegawaiphk/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpegawaipromosi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpegawairemunerasi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpelamar/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpelamar/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpelamar/print1.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpembelian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpenerimaan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpenerimaanpengeluaranseragam/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpenerimaanreturn/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpenerimaanseragam/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpengeluaran/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpengeluaran/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalphk/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalpromosi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalremunerasi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalrencanapembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalreturnpembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalsp/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/approvalsp/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/auth/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjs/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjs/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjs/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjskesehatan/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjskesehatan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjskesehatan/indexdinamis.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjsketenagakerjaan/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjsketenagakerjaan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/bpjsketenagakerjaan/indexdinamis.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/calon_pekerja/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/calon_pekerja/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/calon_pekerja/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/d_comp_trans/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/d_comp_trans/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/d_comp_trans/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/dapan/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/dapan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/dapan/indexdinamis.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/dashboard.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/duplicate.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/entri_transaksi/table.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/errors/401.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/errors/404.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/errors/503.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/errors/maintenance.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/faskes/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/gajipokok/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/arus_kas.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/arus_kas_bulan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/arus_kas_index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/arus_khas_periode.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/arus_khas_periode_tahun.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/kunci_neraca.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/labarugi.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/labarugiIndex.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/labarugi_periode.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/labarugi_periode_bulan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/labarugi_periode_tahun.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/neraca.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/neraca_final.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/laporan/neraca_index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/main.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/detail_group.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/formPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-akses-group/index.blade_1.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-pengguna/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-pengguna/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-pengguna/formPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-pengguna/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/data-stock/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/data-stock/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/data-stock/printall.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/mutasi-stock/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/stock-opname/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/manajemen-stock/stock-opname/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-item/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-item/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-item/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-jabatan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-perusahaan/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master-perusahaan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master_akun/create_sub_akun.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master_akun/create_sub_akun1.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master_akun/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/master_akun/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-contract/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-contract/detail.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-contract/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-contract/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-contract/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/formLanjutan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra_1/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra_1/formPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra_1/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra_1/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mitra_divisi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mou-mitra/add.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mou-mitra/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/mou-mitra/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pagination.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/_footer.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/_head.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/_scripts.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/_sidebar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/_topnav.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/chats.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/partials/right_sidebar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawai/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawai/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawai/formPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawai/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawai/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawaiphk/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawaiphk/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawaipromosi/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawaipromosi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawairemunerasi/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pegawairemunerasi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-di-mitra/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-di-mitra/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-pjtki/coba.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-pjtki/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-pjtki/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja-pjtki/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja/coba.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja/formTambah.blade.php.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pekerja/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembagianseragam/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembagianseragam/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembagianseragam/lanjutkan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembayaran/bayar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembayaran/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembayaran/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/createkhusus.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pembelian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pekerja/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pembelian/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pembelian/js/history_commander.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pembelian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pengeluaran/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaan-pengeluaran/js/history_commander.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaanpengeluaranseragam/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaanpengeluaranseragam/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penerimaanreturn/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pengeluaran/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pengeluaran/create.blade.php.bak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pengeluaran/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pengeluaran/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/pengeluaran/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/lanjutkan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/printbank.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/printpekerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/penggajian/tambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/potongan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/profil/formPassword.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/profil/formProfil.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/profil/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/promosi/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/promosi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/promosi/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rbh/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rbh/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rbh/indexdinamis.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rekening/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/remunerasi/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/remunerasi/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/remunerasi/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rencana-pembelian/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rencana-pembelian/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rencana-pembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/rencana-pembelian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/history.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/lanjut.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/return-pembelian/tambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/seragam/formEdit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/seragam/formTambah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/seragam/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/supplier/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat-peringatan/cari.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat-peringatan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat-peringatan/print.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak2.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak3.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak4.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak5.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak6.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/cetak7.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-daupa.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-pebpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-pekpr.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-pibank.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-resign.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-tibpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create-tkerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/create.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-daupa.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-pebpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-pekpr.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-pibank.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-resign.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-tibpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-tkerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit-utama.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/edit.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-legalisir-data-upah.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pekerja-resign.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pendaftaran-bpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pengajuan-kpr-fill.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pengajuan-kpr.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pengalaman-kerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-pinjam-bank.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-tidak-aktif-bpjs.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan-tidak-lagi-bekerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/laporan.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/pengalaman-kerja.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/surat/pinjam-bank.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakakses/akses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakakses/edit_akses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakakses/errorakses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakakses/tambah_akses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakuser/akses.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakuser/edit_user.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakuser/tambah_user.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/hakuser/user.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/profilperusahaan/profil.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/system/thnfinansial/finansial.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/resources/views/tunjangan/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/routes/console.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/server.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/app/public/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/Helvetica-Bold.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/Helvetica-Oblique.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/Helvetica.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/Times-Bold.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/Times-Roman.afm.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/c6dd34762570cf17ab349bd772ff5d35.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/c6dd34762570cf17ab349bd772ff5d35.ufm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/dompdf_font_family_cache.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/framework/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/framework/sessions/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/tests/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/perwita/tests/TestCase.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,60 +530,12 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perwita/app/Http/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3980">
-              <caret line="208" column="15" selection-start-line="208" selection-start-column="15" selection-end-line="208" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perwita/resources/views/pekerja/formTambah.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/perwita/resources/views/pekerja/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="764" selection-start-line="764" selection-end-line="764" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perwita/app/Http/Controllers/mitraPekerjaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2940">
-              <caret line="170" column="45" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/formTambah.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7160">
-              <caret line="358" column="29" selection-start-line="358" selection-start-column="29" selection-end-line="358" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perwita/resources/views/partials/_head.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="55" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -160,109 +630,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="approvalpelamar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mitra-pekerja" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mou-mitra" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pekerja" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="perwita" type="b2602c69:ProjectViewProjectNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="perwita" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="pengeluaran" type="462c0819:PsiDirectoryNode" />
+              <item name="perwitaupdate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perwitaupdate" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -272,6 +641,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SearchEverywhereHistoryKey" value="approvalpe&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/approvalpenjualanController.php&#10;perwita&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/perwitaController.php&#10;approvalpenerimaanseragamController&#9;null&#9;null&#10;pdmContr&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/pdmController.php&#10;d_size&#9;null&#9;null&#10;d_purcha&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/d_purchase.php&#10;pembeli&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/PembelianController.php&#10;approvalpenjualanController&#9;null&#9;null&#10;itemcontro&#9;null&#9;null&#10;penjuala&#9;null&#9;null&#10;login&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/loginController.php&#10;penerimaan&#9;null&#9;null&#10;rencana&#9;null&#9;null&#10;pdm&#9;null&#9;null&#10;pembelian&#9;null&#9;null&#10;moucontro&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/MouController.php&#10;approvalmitrapekerja&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/approvalmitrapekerjaController.php&#10;manaje&#9;null&#9;null&#10;pekerjaController&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/pekerjaController.php&#10;mitraPekerjaController&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/mitraPekerjaController.php&#10;mitradivisi&#9;null&#9;null&#10;mitrapekerjacon&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/mitraPekerjaController.php&#10;moucontr&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/MouController.php&#10;aksesuser&#9;null&#9;null&#10;moucon&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/MouController.php&#10;mitraController&#9;null&#9;null&#10;mitraControll&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/mitraPekerjaController.php&#10;perusahaa&#9;null&#9;null&#10;MouController&#9;null&#9;null&#10;approvalpela&#9;null&#9;null&#10;loginController&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/loginController.php&#10;approvalmitra&#9;FILE&#9;file:///media/hdd/xampp/htdocs/perwita/perwita/app/Http/Controllers/approvalmitrapekerjaController.php&#10;mitrapekerja&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
@@ -336,17 +706,19 @@
       <workItem from="1556076319020" duration="2621000" />
       <workItem from="1556110351750" duration="120000" />
       <workItem from="1556176254596" duration="19000" />
+      <workItem from="1567740663700" duration="615000" />
+      <workItem from="1567741909920" duration="599000" />
+      <workItem from="1567999964887" duration="165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107891000" />
+    <option name="totallyTimeSpent" value="109270000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="0" width="1368" height="740" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24469697" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21255673" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -627,45 +999,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/perwita/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3980">
-          <caret line="208" column="15" selection-start-line="208" selection-start-column="15" selection-end-line="208" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/perwita/app/Http/routes.php" />
     <entry file="file://$PROJECT_DIR$/perwita/resources/views/pekerja/formTambah.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/perwita/app/Http/Controllers/mitraPekerjaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2940">
-          <caret line="170" column="45" selection-start-line="170" selection-start-column="35" selection-end-line="170" selection-end-column="45" />
+        <state relative-caret-position="2646">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/perwita/resources/views/mitra-pekerja/formTambah.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7160">
+        <state relative-caret-position="6444">
           <caret line="358" column="29" selection-start-line="358" selection-start-column="29" selection-end-line="358" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/perwita/resources/views/partials/_head.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
+        <state relative-caret-position="54">
           <caret line="3" column="55" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="55" />
         </state>
       </provider>
@@ -674,6 +1028,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
           <caret line="764" selection-start-line="764" selection-end-line="764" />
+          <folding>
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/perwita/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2052">
+          <caret line="123" column="9" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="9" />
+          <folding>
+            <element signature="e#7#427#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
