@@ -31,23 +31,23 @@
     }
 </style>
 
-    </head>
+</head>
 
-    <body class="fixed-sidebar">
-        <div id="wrapper">
-            @include('partials._sidebar')
+<body class="fixed-sidebar">
+    <div id="wrapper">
+        @include('partials._sidebar')
 
-          <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div id="page-wrapper" class="gray-bg dashbard-1">
             @include('partials._topnav')
 
             @yield('content')
 
             @include('partials._footer')
-          </div>
         </div>
+    </div>
 
-        @include('partials._scripts')
-        @yield('extra_scripts')
+    @include('partials._scripts')
+    @yield('extra_scripts')
 
-    </body>
+</body>
 </html>

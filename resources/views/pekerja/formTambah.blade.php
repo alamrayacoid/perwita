@@ -16,6 +16,12 @@
     .margin-correction {
         margin-right: 10px;
     }
+    .holder {
+        margin: -10px 0px 0px 0px;
+    }
+    .uploadRow {
+        padding:20px 0px 0px 0px;
+    }
 </style>
 @endsection
 @section('content')
@@ -46,7 +52,7 @@
                     <h5>Form Tambah Data Pekerja</h5>
                 </div>
                 <div class="ibox-content">
-                    <form method="POST" class="form-horizontal form-pendaftaran" action="{{ url('manajemen-pekerja/data-pekerja/simpan') }}" accept-charset="UTF-8" id="tambahpekerja" enctype="multipart/form-data">
+                    <form class="form-horizontal form-pendaftaran" id="tambahpekerja">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nama</label>
                             <div class="col-sm-10">
@@ -137,18 +143,18 @@
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Nomor KTP</label>
+                            <label class="col-sm-2 control-label">Nomor KTP (NIK)</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ktp-pekerja" name="no_ktp" style="text-transform:uppercase">
+                                <input type="text" class="form-control nik" id="ktp-pekerja" name="no_ktp" style="text-transform:uppercase">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">No Tlp Rumah</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="tlp-pekerja" name="no_tlp">
+                                <input type="text" class="form-control hp" id="tlp-pekerja" name="no_tlp">
                             </div>
-                            <label class="col-sm-2 control-label">No Hp</label>
+                            <label class="col-sm-2 control-label hp">No Hp</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="hp-pekerja" name="no_hp">
                             </div>
@@ -406,9 +412,9 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">No Telp Rumah</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" id="nokeluarga" name="nokeluarga" style="text-transform:uppercase">
+                                <input type="text" class="form-control hp" id="nokeluarga" name="nokeluarga" style="text-transform:uppercase">
                             </div>
-                            <label class="col-sm-2 control-label">Hp</label>
+                            <label class="col-sm-2 control-label hp">Hp</label>
                             <div class="col-sm-4">
                                 <input type="text" class="form-control" id="hpkeluarga" name="hpkeluarga" style="text-transform:uppercase">
                             </div>
@@ -541,139 +547,172 @@
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
+
+                        <!-- upload file foto -->
                         <div class="form-group">
-                            {{-- <div class="col-md-6">
-                                <div class="image-crop">
-                                    <img src="{{ asset('assets/img/user.jpg') }}">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h4>Preview Image</h4>
-                                <div class="img-preview img-preview-lg"  style="width: 128px; height: 192px;"></div>
-                                <div class="btn-group" style="margin-top: 10px;">
-                                    <label title="Upload image file" for="inputImage" class="btn btn-primary">
-                                        <input type="file" name="imageUpload" id="inputImage" class="hide">
-                                        Upload Image
+
+                            <div class="row col-sm-12 uploadRow">
+                                <label class="col-sm-2 control-label">Foto</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="upload-file-selector">
+                                        <input id="upload-file-selector" name="imageUpload" class="uploadGambar" type="file">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto
                                     </label>
                                 </div>
-                                <div class="btn-group" style="margin-top: 10px;">
-                                    <button class="btn btn-white" id="zoomIn" type="button">Zoom In</button>
-                                    <button class="btn btn-white" id="zoomOut" type="button">Zoom Out</button>
-                                    <button class="btn btn-white" id="rotateLeft" type="button">Rotate Left</button>
-                                    <button class="btn btn-white" id="rotateRight" type="button">Rotate Right</button>
+                                <div class="col-sm-6 image-holder holder">
                                 </div>
-                            </div> --}}
-                            <label class="col-sm-2 control-label">Foto</label>
-                            <div class="col-sm-3">
-                                <label class="btn btn-default" for="upload-file-selector">
-                                    <input id="upload-file-selector" name="imageUpload" class="uploadGambar" type="file">
-                                    <i class="fa fa-upload margin-correction"></i>Upload Foto
-                                </label>
                             </div>
-                            <div class="col-sm-6 image-holder" style="padding:0px; ">
 
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto KTP</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadktp">
+                                        <input id="uploadktp" name="ktpUpload" class="uploadKtp" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto KTP
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 ktp-holder holder" id="ktp-holder">
+                                </div>
                             </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto KTP</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadktp">
-                                <input id="uploadktp" name="ktpUpload" class="uploadKtp" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto KTP
-                            </label>
-                        </div>
-                        <div class="col-sm-6 ktp-holder" id="ktp-holder" style="padding:0px; ">
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto Ijazah</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadijazah">
+                                        <input id="uploadijazah" name="ijazahUpload" class="uploadijazah" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Ijazah
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 ijazah-holder holder" id="ijazah-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto SKCK</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadskck">
+                                        <input id="uploadskck" name="skckUpload" class="uploadskck" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto SKCK
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 skck-holder holder" id="skck-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto Hasil Medical</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadmedical">
+                                        <input id="uploadmedical" name="medicalUpload" class="uploadmedical" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Hasil Medical
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 medical-holder holder" id="medical-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto KK</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadkk">
+                                        <input id="uploadkk" name="kkUpload" class="uploadkk" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto KK
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 kk-holder holder" id="kk-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto Rekening (bagian depan)</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadrekening">
+                                        <input id="uploadrekening" name="rekeningUpload" class="uploadrekening" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Rekening
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 rekening-holder holder" id="rekening-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto BPJS</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadbpjs">
+                                        <input id="uploadbpjs" name="bpjsUpload" class="uploadbpjs" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto BPJS
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 bpjs-holder holder" id="bpjs-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto Kartu RBH</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadrbh">
+                                        <input id="uploadrbh" name="rbhUpload" class="uploadrbh" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto kartu RBH
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 rbh-holder holder" id="rbh-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto Rekening Payroll</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadrekpayroll">
+                                        <input id="uploadrekpayroll" name="rekpayrollUpload" class="uploadrekpayroll" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Rekening Payroll
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 rekpayroll-holder holder" id="rekpayroll-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto PKWT</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadpkwt">
+                                        <input id="uploadpkwt" name="pkwtUpload" class="uploadpkwt" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto PKWT
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 pkwt-holder holder" id="pkwt-holder">
+                                </div>
+                            </div>
+
+                            <div class="row col-sm-12 uploadRow">
+                                <div class="hr-line-dashed"></div>
+                                <label class="col-sm-2 control-label">Foto SK</label>
+                                <div class="col-sm-4">
+                                    <label class="btn btn-default" for="uploadsk">
+                                        <input id="uploadsk" name="skUpload" class="uploadsk" type="file" style="display:none;">
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto SK
+                                    </label>
+                                </div>
+                                <div class="col-sm-6 sk-holder holder" id="sk-holder">
+                                </div>
+                            </div>
 
                         </div>
                         <br>
                         <br>
                         <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto Ijazah</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadijazah">
-                                <input id="uploadijazah" name="ijazahUpload" class="uploadijazah" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto Ijazah
-                            </label>
-                        </div>
-                        <div class="col-sm-6 ijazah-holder" id="ijazah-holder" style="padding:0px; ">
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto SKCK</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadskck">
-                                <input id="uploadskck" name="skckUpload" class="uploadskck" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto SKCK
-                            </label>
-                        </div>
-                        <div class="col-sm-6 skck-holder" id="skck-holder" style="padding:0px; ">
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto Hasil Medical</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadmedical">
-                                <input id="uploadmedical" name="medicalUpload" class="uploadmedical" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto Hasil Medical
-                            </label>
-                        </div>
-                        <div class="col-sm-6 medical-holder" id="medical-holder" style="padding:0px; ">
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto KK</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadkk">
-                                <input id="uploadkk" name="kkUpload" class="uploadkk" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto KK
-                            </label>
-                        </div>
-                        <div class="col-sm-6 kk-holder" id="kk-holder" style="padding:0px; ">
-
-                        </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        <br>
-                        <br>
-                        <label class="col-sm-2 control-label">Foto Rekening</label>
-                        <div class="col-sm-3">
-                            <label class="btn btn-default" for="uploadrekening">
-                                <input id="uploadrekening" name="rekeningUpload" class="uploadrekening" type="file" style="display:none;">
-                                <i class="fa fa-upload margin-correction"></i>Upload Foto Rekening
-                            </label>
-                        </div>
-                        <div class="col-sm-6 rekening-holder" id="rekening-holder" style="padding:0px; ">
-
-                        </div>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="hr-line-dashed"></div>
-                        {{-- <div class="form-group">
-                            <input type="file" name="abcd" id="abcd" onchange="ubah()">
-                            <input type="file" name="abcdef" id="abcdef">
-                        </div> --}}
                         <div class="form-group">
                             <div class="col-sm-2" style="float: right">
-                                <button class="btn btn-primary btn-outline" {{-- onclick="simpan()" --}} type="simpan" style="float: right"><i class="fa fa-check"></i>&nbsp;Simpan</button>
+                                <button class="btn btn-primary btn-outline" onclick="simpan()" type="button" style="float: right"><i class="fa fa-check"></i>&nbsp;Simpan</button>
                             </div>
                         </div>
                     </form>
@@ -803,7 +842,7 @@
                     $("<img />", {
                         "src": e.target.result,
                         "class": "thumb-image img-responsive",
-                        "height": "80px",
+                        "width": "150px",
                     }).appendTo(image_holder);
                     $('.save').attr('disabled', false);
                 }, 2000)
@@ -829,7 +868,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -855,7 +894,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -881,7 +920,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -907,7 +946,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -933,7 +972,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -959,7 +998,7 @@
                   $("<img />", {
                       "src": e.target.result,
                       "class": "thumb-image img-responsive",
-                      "height": "80px",
+                      "width": "150px",
                   }).appendTo(image_holder);
                   $('.save').attr('disabled', false);
               }, 2000)
@@ -969,6 +1008,136 @@
       } else {
           alert("This browser does not support FileReader.");
       }
+    });
+
+    $("#uploadbpjs").on('change', function () {
+        $('.save').attr('disabled', false);
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#bpjs-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_holder.html('<img src="{{ asset('assets/img/loading1.gif') }}" class="img-responsive" width="60px">');
+                $('.save').attr('disabled', true);
+                setTimeout(function(){
+                    image_holder.empty();
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumb-image img-responsive",
+                        "width": "150px",
+                    }).appendTo(image_holder);
+                    $('.save').attr('disabled', false);
+                }, 2000)
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#uploadrbh").on('change', function () {
+        $('.save').attr('disabled', false);
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#rbh-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_holder.html('<img src="{{ asset('assets/img/loading1.gif') }}" class="img-responsive" width="60px">');
+                $('.save').attr('disabled', true);
+                setTimeout(function(){
+                    image_holder.empty();
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumb-image img-responsive",
+                        "width": "150px",
+                    }).appendTo(image_holder);
+                    $('.save').attr('disabled', false);
+                }, 2000)
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#uploadrekpayroll").on('change', function () {
+        $('.save').attr('disabled', false);
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#rekpayroll-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_holder.html('<img src="{{ asset('assets/img/loading1.gif') }}" class="img-responsive" width="60px">');
+                $('.save').attr('disabled', true);
+                setTimeout(function(){
+                    image_holder.empty();
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumb-image img-responsive",
+                        "width": "150px",
+                    }).appendTo(image_holder);
+                    $('.save').attr('disabled', false);
+                }, 2000)
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#uploadpkwt").on('change', function () {
+        $('.save').attr('disabled', false);
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#pkwt-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_holder.html('<img src="{{ asset('assets/img/loading1.gif') }}" class="img-responsive" width="60px">');
+                $('.save').attr('disabled', true);
+                setTimeout(function(){
+                    image_holder.empty();
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumb-image img-responsive",
+                        "width": "150px",
+                    }).appendTo(image_holder);
+                    $('.save').attr('disabled', false);
+                }, 2000)
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    $("#uploadsk").on('change', function () {
+        $('.save').attr('disabled', false);
+        if (typeof (FileReader) != "undefined") {
+            var image_holder = $("#sk-holder");
+            image_holder.empty();
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                image_holder.html('<img src="{{ asset('assets/img/loading1.gif') }}" class="img-responsive" width="60px">');
+                $('.save').attr('disabled', true);
+                setTimeout(function(){
+                    image_holder.empty();
+                    $("<img />", {
+                        "src": e.target.result,
+                        "class": "thumb-image img-responsive",
+                        "width": "150px",
+                    }).appendTo(image_holder);
+                    $('.save').attr('disabled', false);
+                }, 2000)
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
     });
 
     function setAgamaLain(){
@@ -1019,34 +1188,34 @@
         $('.form-dinamis-keterampilan'+hapus).remove();
     }
 
-    function simpan(){
+    function simpan() {
         waitingDialog.show();
-        var nama = $('#nama-pekerja');
-        var jabatan = $('#jabatan-pelamar');
-        var alamatpekerja = $('#alamat-pekerja');
-        var alamatpekerjanow = $('#alamat-pekerja-now');
-        var ktppekerja = $('#ktp-pekerja');
+        var nama = $('#nama-pekerja').val();
+        var jabatan = $('#jabatan-pelamar').val();
+        var alamatpekerja = $('#alamat-pekerja').val();
+        var alamatpekerjanow = $('#alamat-pekerja-now').val();
+        var ktppekerja = $('#ktp-pekerja').val();
 
         if (nama == '' || nama == null || nama == ' ') {
             waitingDialog.hide();
             Command: toastr["warning"]("Nama pelamar harus diisi terlebih dahulu", "Peringatan !")
 
             toastr.options = {
-              "closeButton": false,
-              "debug": true,
-              "newestOnTop": false,
-              "progressBar": true,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
+                "closeButton": false,
+                "debug": true,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
             return false;
         }
@@ -1056,100 +1225,108 @@
             Command: toastr["warning"]("Jabatan pelamar harus diisi terlebih dahulu", "Peringatan !")
 
             toastr.options = {
-              "closeButton": false,
-              "debug": true,
-              "newestOnTop": false,
-              "progressBar": true,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
+                "closeButton": false,
+                "debug": true,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
             return false;
         }
 
         if (alamatpekerja == '' || alamatpekerja == null || alamatpekerja == ' ' || alamatpekerjanow == '' || alamatpekerjanow == null || alamatpekerjanow == ' ') {
             waitingDialog.hide();
-            Command: toastr["warning"]("Alamat pelamar harus diisi terlebih dahulu", "Peringatan !")
+            Command: toastr["warning"]("Alamat pelamar (KTP & Sekarang) harus diisi terlebih dahulu", "Peringatan !")
 
             toastr.options = {
-              "closeButton": false,
-              "debug": true,
-              "newestOnTop": false,
-              "progressBar": true,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
+                "closeButton": false,
+                "debug": true,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
             return false;
         }
 
         if (ktppekerja == '' || ktppekerja == null || ktppekerja == ' ') {
             waitingDialog.hide();
-            Command: toastr["warning"]("KTP pelamar harus diisi terlebih dahulu", "Peringatan !")
+            Command: toastr["warning"]("No KTP pelamar harus diisi terlebih dahulu", "Peringatan !")
 
             toastr.options = {
-              "closeButton": false,
-              "debug": true,
-              "newestOnTop": false,
-              "progressBar": true,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
+                "closeButton": false,
+                "debug": true,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
             }
             return false;
         }
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-        });
+        form_data = new FormData($('.form-pendaftaran')[0]);
+
         $.ajax({
             url: baseUrl + '/manajemen-pekerja/data-pekerja/simpan',
             type: 'post',
-            data: $('.form-pendaftaran').serialize(),
+            data: form_data,
+            processData: false,
+            contentType: false,
+            enctype: "multipart/form-data",
             success: function(response){
-
                 waitingDialog.hide();
-          }, error:function(x, e) {
-            waitingDialog.hide();
-              if (x.status == 0) {
-                  alert('ups !! gagal menghubungi server, harap cek kembali koneksi internet anda');
-              } else if (x.status == 404) {
-                  alert('ups !! Halaman yang diminta tidak dapat ditampilkan.');
-              } else if (x.status == 500) {
-                  alert('ups !! Server sedang mengalami gangguan. harap coba lagi nanti');
-              } else if (e == 'parsererror') {
-                  alert('Error.\nParsing JSON Request failed.');
-              } else if (e == 'timeout'){
-                  alert('Request Time out. Harap coba lagi nanti');
-              } else {
-                  alert('Unknow Error.\n' + x.responseText);
-              }
+                if (response.status == 'berhasil') {
+                    console.log('berhasil');
+                }
+                else if (response.status == 'error') {
+                    Command: toastr["warning"]("Terjadi kesalahan : " + response.message, "Peringatan !")
+                }
+            },
+            error: function(x, e) {
+                console.log('-- ' + x);
+                console.log('-- ' + e);
+                waitingDialog.hide();
+                if (x.status == 0) {
+                    alert('ups !! gagal menghubungi server, harap cek kembali koneksi internet anda');
+                } else if (x.status == 404) {
+                    alert('ups !! Halaman yang diminta tidak dapat ditampilkan.');
+                } else if (x.status == 500) {
+                    alert('ups !! Server sedang mengalami gangguan. harap coba lagi nanti');
+                } else if (e == 'parsererror') {
+                    alert('Error.\nParsing JSON Request failed.');
+                } else if (e == 'timeout'){
+                    alert('Request Time out. Harap coba lagi nanti');
+                } else {
+                    alert('Unknow Error.\n' + x.responseText);
+                }
             }
         });
 

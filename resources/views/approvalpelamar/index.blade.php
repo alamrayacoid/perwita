@@ -68,7 +68,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($data as $row)
+                                    {{--
+                                    <!-- @foreach($data as $row)
                                     <tr>
                                         <td><input class="pilih-{{ $row->p_id }}" id="pilih-{{ $row->p_id }}" type="checkbox" name="pilih[]" onclick="selectBox('{{ $row->p_id }}')" value="{{ $row->p_id }}"></td>
                                         <td>{{ $row->p_name }}</td>
@@ -83,7 +84,8 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                    @endforeach -->
+                                    --}}
                                 </tbody>
                             </table>
                         </form>
@@ -429,18 +431,40 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
+
+            tableApprovalPelamar();
+        });
+
+        function tableApprovalPelamar() {
+            $('#approvalpelamar').DataTable().destroy();
             table = $('#approvalpelamar').DataTable({
+                serverSide: true,
                 searching: false,
                 responsive: true,
                 ordering: false,
                 paging: true,
-                "pageLength": 10,
-                "aaSorting": [],
-                "lengthMenu": [[10, 20, 50, 100, 500, 1000, -1], [10, 20, 50, 100, 500, 1000, "All"]],
-                "language": dataTableLanguage,
+                ajax: {
+                    url: "{{ route('approvalPelamar.datatablepekerja') }}",
+                    type: "get",
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    }
+                },
+                columns: [
+                    {data: 'checkbox'},
+                    {data: 'p_name'},
+                    {data: 'p_education'},
+                    {data: 'p_address'},
+                    {data: 'p_hp'},
+                    {data: 'action', name: 'action'}
+                ],
+                pageLength: 10,
+                aaSorting: [],
+                lengthMenu: [[10, 20, 50, 100, 500, 1000, -1], [10, 20, 50, 100, 500, 1000, "All"]],
+                language: dataTableLanguage,
             });
-
-        });
+            tb_detail.columns.adjust();
+        }
 
         function detail(id) {
             $("#modal-detail").modal('show');

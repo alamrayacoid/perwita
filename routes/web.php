@@ -170,11 +170,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::POST('manajemen-pekerja/data-pekerja/tablecalon','pekerjaController@dataCalon');
     Route::get('manajemen-pekerja/data-pekerja/tablecalon','pekerjaController@dataCalon');
     Route::get('manajemen-pekerja/data-pekerja/tambah','pekerjaController@tambah');
-    Route::get('manajemen-pekerja/data-pekerja/simpan','pekerjaController@simpan');
-    Route::POST('manajemen-pekerja/data-pekerja/simpan','pekerjaController@simpan');
+    // Route::get('manajemen-pekerja/data-pekerja/simpan','pekerjaController@simpan');
+    Route::post('manajemen-pekerja/data-pekerja/simpan','pekerjaController@simpan');
     Route::get('manajemen-pekerja/data-pekerja/{id}/edit','pekerjaController@edit');
-    Route::get('manajemen-pekerja/data-pekerja/perbarui/','pekerjaController@perbarui');
-    Route::POST('manajemen-pekerja/data-pekerja/perbarui/','pekerjaController@perbarui');
+    // Route::get('manajemen-pekerja/data-pekerja/perbarui/','pekerjaController@perbarui');
+    Route::POST('manajemen-pekerja/data-pekerja/perbarui/{id}','pekerjaController@perbarui');
     Route::get('manajemen-pekerja/data-pekerja/hapus/{id}','pekerjaController@hapus');
     Route::get('manajemen-pekerja/data-pekerja/detail','pekerjaController@detail');
     Route::get('manajemen-pekerja/data-pekerja/resign','pekerjaController@resign');
@@ -772,8 +772,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Approval pelamar
     Route::get('approvalpelamar', 'approvalpelamarController@index');
-    Route::get('approvalpelamar/datatablepekerja', 'approvalpelamarController@datatablepekerja');
-    Route::post('approvalpelamar/datatablepekerja', 'approvalpelamarController@datatablepekerja');
+    Route::get('approvalpelamar/datatablepekerja', 'approvalpelamarController@datatablepekerja')->name('approvalPelamar.datatablepekerja');
+    Route::post('approvalpelamar/datatablepekerja', 'approvalpelamarController@datatablepekerja')->name('approvalPelamar.datatablepekerja');
     Route::get('approvalpelamar/detail', 'approvalpelamarController@detail');
     Route::get('approvalpelamar/setujui', 'approvalpelamarController@setujui');
     Route::post('approvalpelamar/setujuilist', 'approvalpelamarController@setujuilist');

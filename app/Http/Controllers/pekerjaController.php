@@ -90,13 +90,14 @@ class pekerjaController extends Controller
             ->select('p_id', 'p_name', 'p_sex', 'p_address', 'p_hp', 'pm_detailid', 'pm_status')
             ->where('pm_detailid', DB::raw('(select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id)'))
             ->where('pm_status', '=', 'Calon')
+            ->where('p_status_approval', 'Y')
             ->orderBy('p_name')
             ->get();
 
-        // $pekerja = DB::select("select @rownum := @rownum + 1 as number, p_id, p_name, p_sex, p_address, p_hp, pm_detailid, pm_status 
-        //     from d_pekerja p join d_pekerja_mutation pm on p_id = pm_pekerja 
-        //     cross join (select @rownum := 0) r 
-        //     where pm_detailid = (select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id) 
+        // $pekerja = DB::select("select @rownum := @rownum + 1 as number, p_id, p_name, p_sex, p_address, p_hp, pm_detailid, pm_status
+        //     from d_pekerja p join d_pekerja_mutation pm on p_id = pm_pekerja
+        //     cross join (select @rownum := 0) r
+        //     where pm_detailid = (select max(pm_detailid) from d_pekerja_mutation where pm_pekerja = p.p_id)
         //     and pm_status = 'Calon' order by p_name");
 
         //$pekerja = collect($pekerja);
@@ -155,20 +156,20 @@ class pekerjaController extends Controller
           return redirect('not-authorized');
       }
 
-        $jabPelamar = DB::table('d_jabatan_pelamar')
-            ->select('*')
-            ->orderBy('jp_name')
-            ->get();
+      $jabPelamar = DB::table('d_jabatan_pelamar')
+      ->select('*')
+      ->orderBy('jp_name')
+      ->get();
 
-        return view('pekerja.formTambah', compact('jabPelamar'));
+      return view('pekerja.formTambah', compact('jabPelamar'));
 
     }
 
     public function simpan(Request $request)
     {
-      if (!AksesUser::checkAkses(3, 'insert')) {
-          return redirect('not-authorized');
-      }
+        if (!AksesUser::checkAkses(3, 'insert')) {
+            return redirect('not-authorized');
+        }
         DB::beginTransaction();
         try {
 
@@ -254,6 +255,12 @@ class pekerjaController extends Controller
             $imgmedical = null;
             $imgkk = null;
             $imgrekening = null;
+            $imgBpjs = null;
+            $imgRbh = null;
+            $imgRekPayroll = null;
+            $imgPkwt = null;
+            $imgSk = null;
+
             $tgl = carbon::now('Asia/Jakarta');
             $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/' . $idPekerja;
@@ -267,6 +274,12 @@ class pekerjaController extends Controller
             $medical = $request->file('medicalUpload');
             $kk = $request->file('kkUpload');
             $rekening = $request->file('rekeningUpload');
+            $bpjs = $request->file('bpjsUpload');
+            $rbh = $request->file('rbhUpload');
+            $rekPayroll = $request->file('rekpayrollUpload');
+            $pkwt = $request->file('pkwtUpload');
+            $sk = $request->file('skUpload');
+
             $name = null;
             if ($file != null) {
                 $name = $folder . '.' . $file->getClientOriginalExtension();
@@ -281,7 +294,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/ktp/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -299,7 +312,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/ijazah/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -317,7 +330,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/skck/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -335,7 +348,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/medical/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -353,7 +366,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/kk/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -371,7 +384,7 @@ class pekerjaController extends Controller
                 }
             }
 
-            $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
             $dir = 'image/uploads/pekerja/rekening/' . $idPekerja;
             $this->deleteDir($dir);
             $childPath = $dir . '/';
@@ -384,6 +397,96 @@ class pekerjaController extends Controller
                         $imgrekening = $childPath . $namerekening;
                     } else
                         $imgrekening = null;
+                } else {
+                    return 'already exist';
+                }
+            }
+
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            $dir = 'image/uploads/pekerja/bpjs/' . $idPekerja;
+            $this->deleteDir($dir);
+            $childPath = $dir . '/';
+            $path = $childPath;
+            if ($bpjs != null) {
+                $nameImage = $folder . '-bpjs.' . $bpjs->getClientOriginalExtension();
+                if (!File::exists($path)) {
+                    if (File::makeDirectory($path, 0777, true)) {
+                        $bpjs->move($path, $nameImage);
+                        $imgBpjs = $childPath . $nameImage;
+                    } else
+                        $imgBpjs = null;
+                } else {
+                    return 'already exist';
+                }
+            }
+
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            $dir = 'image/uploads/pekerja/rbh/' . $idPekerja;
+            $this->deleteDir($dir);
+            $childPath = $dir . '/';
+            $path = $childPath;
+            if ($rbh != null) {
+                $nameImage = $folder . '-rbh.' . $rbh->getClientOriginalExtension();
+                if (!File::exists($path)) {
+                    if (File::makeDirectory($path, 0777, true)) {
+                        $rbh->move($path, $nameImage);
+                        $imgRbh = $childPath . $nameImage;
+                    } else
+                        $imgRbh = null;
+                } else {
+                    return 'already exist';
+                }
+            }
+
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            $dir = 'image/uploads/pekerja/rekpayroll/' . $idPekerja;
+            $this->deleteDir($dir);
+            $childPath = $dir . '/';
+            $path = $childPath;
+            if ($rekPayroll != null) {
+                $nameImage = $folder . '-rekpayroll.' . $rekPayroll->getClientOriginalExtension();
+                if (!File::exists($path)) {
+                    if (File::makeDirectory($path, 0777, true)) {
+                        $rekPayroll->move($path, $nameImage);
+                        $imgRekPayroll = $childPath . $nameImage;
+                    } else
+                        $imgRekPayroll = null;
+                } else {
+                    return 'already exist';
+                }
+            }
+
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            $dir = 'image/uploads/pekerja/pkwt/' . $idPekerja;
+            $this->deleteDir($dir);
+            $childPath = $dir . '/';
+            $path = $childPath;
+            if ($pkwt != null) {
+                $nameImage = $folder . '-pkwt.' . $pkwt->getClientOriginalExtension();
+                if (!File::exists($path)) {
+                    if (File::makeDirectory($path, 0777, true)) {
+                        $pkwt->move($path, $nameImage);
+                        $imgPkwt = $childPath . $nameImage;
+                    } else
+                        $imgPkwt = null;
+                } else {
+                    return 'already exist';
+                }
+            }
+
+            // $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+            $dir = 'image/uploads/pekerja/sk/' . $idPekerja;
+            $this->deleteDir($dir);
+            $childPath = $dir . '/';
+            $path = $childPath;
+            if ($sk != null) {
+                $nameImage = $folder . '-sk.' . $sk->getClientOriginalExtension();
+                if (!File::exists($path)) {
+                    if (File::makeDirectory($path, 0777, true)) {
+                        $sk->move($path, $nameImage);
+                        $imgSk = $childPath . $nameImage;
+                    } else
+                        $imgSk = null;
                 } else {
                     return 'already exist';
                 }
@@ -454,6 +557,11 @@ class pekerjaController extends Controller
                 "p_img_medical" => $imgmedical,
                 "p_img_kk" => $imgkk,
                 "p_img_rekening" => $imgrekening,
+                "p_img_bpjs" => $imgBpjs,
+                "p_img_rbh" => $imgRbh,
+                "p_img_rekpayroll" => $imgRekPayroll,
+                "p_img_pkwt" => $imgPkwt,
+                "p_img_sk" => $imgSk,
                 "p_insert_by" => Session::get('mem'),
                 "p_insert" => Carbon::now('Asia/Jakarta'),
                 "p_update" => Carbon::now('Asia/Jakarta')
@@ -581,6 +689,7 @@ class pekerjaController extends Controller
                 ->where('p_status_approval', null)
                 ->get();
 
+            // update notif
             DB::table('d_notifikasi')
                 ->where('n_fitur', 'Calon Pekerja')
                 ->update([
@@ -590,11 +699,19 @@ class pekerjaController extends Controller
 
             DB::commit();
             Session::flash('sukses', 'data pekerja baru anda berhasil disimpan');
-            return redirect('manajemen-pekerja/data-pekerja');
-        } catch (\Exception $e) {
+            // return redirect('manajemen-pekerja/data-pekerja');
+            return response()->json([
+                'status' => 'berhasil'
+            ]);
+        }
+        catch (\Exception $e) {
             DB::rollback();
             Session::flash('gagal', 'data pekerja tidak dapat di simpan');
-            return redirect('manajemen-pekerja/data-pekerja');
+            // return redirect('manajemen-pekerja/data-pekerja');
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
         }
     }
 
@@ -604,61 +721,62 @@ class pekerjaController extends Controller
           return redirect('not-authorized');
       }
         $jabatan = DB::table('d_jabatan_pelamar')
-            ->select('jp_name', 'jp_id')->get();
+            ->select('jp_name', 'jp_id')
+            ->get();
 
         $pekerja = DB::table('d_pekerja')
             ->where('p_id', '=', $id)
-            ->select('p_name'
-                , 'p_address'
-                , 'p_rt_rw'
-                , 'p_kecamatan'
-                , 'p_kel'
-                , 'p_nip'
-                , 'p_city'
-                , 'p_jabatan_lamaran'
-                , 'p_jabatan'
-                , 'p_address_now'
-                , 'p_rt_rw_now'
-                , 'p_kecamatan_now'
-                , 'p_kel_now'
-                , 'p_city_now'
-                , 'p_birthplace'
-                , 'p_birthdate'
-                , 'p_ktp'
-                , 'p_telp'
-                , 'p_hp'
-                , 'p_sex'
-                , 'p_state'
-                , 'p_status'
-                , 'p_many_kids'
-                , 'p_religion'
-                , 'p_education'
-                , 'p_name_family'
-                , 'p_address_family'
-                , 'p_telp_family'
-                , 'p_hp_family'
-                , 'p_address_family'
-                , 'p_hubungan_family'
-                , 'p_wife_name'
-                , 'p_wife_birth'
-                , 'p_wife_birthplace'
-                , 'p_dad_name'
-                , 'p_dad_job'
-                , 'p_mom_name'
-                , 'p_mom_job'
-                , 'p_job_now'
-                , 'p_weight'
-                , 'p_height'
-                , 'p_seragam_size'
-                , 'p_celana_size'
-                , 'p_sepatu_size'
-                , 'p_img'
-                , 'p_img_ktp'
-                , 'p_img_skck'
-                , 'p_img_medical'
-                , 'p_img_ijazah'
-                , 'p_img_kk'
-                , 'p_img_rekening')
+            // ->select('p_name'
+            //     , 'p_address'
+            //     , 'p_rt_rw'
+            //     , 'p_kecamatan'
+            //     , 'p_kel'
+            //     , 'p_nip'
+            //     , 'p_city'
+            //     , 'p_jabatan_lamaran'
+            //     , 'p_jabatan'
+            //     , 'p_address_now'
+            //     , 'p_rt_rw_now'
+            //     , 'p_kecamatan_now'
+            //     , 'p_kel_now'
+            //     , 'p_city_now'
+            //     , 'p_birthplace'
+            //     , 'p_birthdate'
+            //     , 'p_ktp'
+            //     , 'p_telp'
+            //     , 'p_hp'
+            //     , 'p_sex'
+            //     , 'p_state'
+            //     , 'p_status'
+            //     , 'p_many_kids'
+            //     , 'p_religion'
+            //     , 'p_education'
+            //     , 'p_name_family'
+            //     , 'p_address_family'
+            //     , 'p_telp_family'
+            //     , 'p_hp_family'
+            //     , 'p_address_family'
+            //     , 'p_hubungan_family'
+            //     , 'p_wife_name'
+            //     , 'p_wife_birth'
+            //     , 'p_wife_birthplace'
+            //     , 'p_dad_name'
+            //     , 'p_dad_job'
+            //     , 'p_mom_name'
+            //     , 'p_mom_job'
+            //     , 'p_job_now'
+            //     , 'p_weight'
+            //     , 'p_height'
+            //     , 'p_seragam_size'
+            //     , 'p_celana_size'
+            //     , 'p_sepatu_size'
+            //     , 'p_img'
+            //     , 'p_img_ktp'
+            //     , 'p_img_skck'
+            //     , 'p_img_medical'
+            //     , 'p_img_ijazah'
+            //     , 'p_img_kk'
+            //     , 'p_img_rekening')
             ->get();
 
         $child = DB::table('d_pekerja_child')
@@ -677,7 +795,7 @@ class pekerjaController extends Controller
         //        ->get();
 
         $bahasa = DB::select("select pl_pekerja, (select pl_language from d_pekerja_language pl where pl.pl_pekerja = '$id' and pl.pl_language = 'INDONESIA') as indonesia, (select pl_language from d_pekerja_language pl where pl.pl_pekerja = '$id' and pl.pl_language = 'INGGRIS') as inggris, (select pl_language from d_pekerja_language pl where pl.pl_pekerja = '$id' and pl.pl_language = 'MANDARIN') as mandarin, (select pl_language from d_pekerja_language pl where pl.pl_pekerja = '$id' and pl.pl_language != 'INDONESIA' and pl.pl_language != 'INGGRIS' and pl.pl_language != 'MANDARIN') as lain from d_pekerja_language dpl where pl_pekerja = '$id' group by pl_pekerja");
-        //dd($bahasa);
+
 
         $pengalaman = DB::table('d_pekerja_pengalaman')
             ->select('pp_perusahaan', 'pp_start', 'pp_end', 'pp_jabatan')
@@ -685,63 +803,31 @@ class pekerjaController extends Controller
             ->get();
 
         $referensi = DB::select("select *,
-(select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'TEMAN') as teman,
-(select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'KELUARGA') as keluarga,
-(select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'KORAN') as koran,
-(select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'INTERNET') as internet,
-(select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi != 'TEMAN' and pr.pr_referensi != 'KELUARGA' and pr.pr_referensi != 'KORAN' and pr.pr_referensi != 'INTERNET') as lain
-from d_pekerja_referensi dpr
-where pr_pekerja = '$id'
-group by pr_pekerja");
+            (select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'TEMAN') as teman,
+            (select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'KELUARGA') as keluarga,
+            (select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'KORAN') as koran,
+            (select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi = 'INTERNET') as internet,
+            (select pr_referensi from d_pekerja_referensi pr where pr.pr_pekerja = '$id' and pr.pr_referensi != 'TEMAN' and pr.pr_referensi != 'KELUARGA' and pr.pr_referensi != 'KORAN' and pr.pr_referensi != 'INTERNET') as lain
+            from d_pekerja_referensi dpr
+            where pr_pekerja = '$id'
+            group by pr_pekerja");
 
         $sim = DB::select("select ps_pekerja,
-(select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM C') as simc,
-(select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM A') as sima,
-(select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM B') as simb,
-(select ps_note from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_note != '') as note
-from d_pekerja_sim dps
-where ps_pekerja = '$id'
-group by ps_pekerja");
-        //  dd($sim);
-        // $sim = DB::table('d_pekerja_sim')
-        //         ->select('ps_sim', 'ps_note')
-        //         ->where('ps_pekerja', '=', $id)
-        //         ->get();
-
-        // echo "<pre>";
-        // print_r($pekerja);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($child);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($keterampilan);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($bahasa);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($pengalaman);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($referensi);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($sim);
-        // echo "</pre>";
-        // echo "<pre>";
-        // print_r($jabatan);
-        // echo "</pre>";
-
+            (select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM C') as simc,
+            (select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM A') as sima,
+            (select ps_sim from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_sim = 'SIM B') as simb,
+            (select ps_note from d_pekerja_sim ps where ps.ps_pekerja = '$id' and ps.ps_note != '') as note
+            from d_pekerja_sim dps
+            where ps_pekerja = '$id'
+            group by ps_pekerja");
         return view('pekerja.formEdit', compact('id', 'pekerja', 'jabatan', 'child', 'keterampilan', 'bahasa', 'pengalaman', 'referensi', 'sim'));
-
     }
 
     public function perbarui(Request $request)
     {
-      if (!AksesUser::checkAkses(3, 'update')) {
-          return redirect('not-authorized');
-      }
+        if (!AksesUser::checkAkses(3, 'update')) {
+            return redirect('not-authorized');
+        }
 
         DB::beginTransaction();
         try {
@@ -752,25 +838,25 @@ group by ps_pekerja");
             $data = DB::table('d_pekerja')->where('p_id', $id)->first();
 
             DB::table('d_pekerja')->where('p_id', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_child')->where('pc_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_keterampilan')->where('pk_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_language')->where('pl_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_pengalaman')->where('pp_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_referensi')->where('pr_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             DB::table('d_pekerja_sim')->where('ps_pekerja', '=', $id)
-                ->delete();
+            ->delete();
 
             $nama = strtoupper($request->nama);
             $jabatanpelamar = strtoupper($request->jabatan_pelamar);
@@ -862,13 +948,14 @@ group by ps_pekerja");
                             $imgPath = $childPath . $name;
                             $data->p_img = $imgPath;
                         } else
-                            $imgPath = null;
+                        $imgPath = null;
                     } else {
                         return 'already exist';
                     }
                 }
 
-            } if (!empty($request->file('ktpUpload'))) {
+            }
+            if (!empty($request->file('ktpUpload'))) {
                 $imgktp = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -887,13 +974,14 @@ group by ps_pekerja");
                             $imgktp = $childPath . $namektp;
                             $data->p_img_ktp = $imgktp;
                         } else
-                            $imgktp = null;
+                        $imgktp = null;
                     } else {
                         return 'already exist';
                     }
                 }
 
-            } if (!empty($request->file('ijazahUpload'))) {
+            }
+            if (!empty($request->file('ijazahUpload'))) {
                 $imgijazah = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -912,7 +1000,7 @@ group by ps_pekerja");
                             $imgijazah = $childPath . $nameijazah;
                             $data->p_img_ijazah = $imgijazah;
                         } else
-                            $imgijazah = null;
+                        $imgijazah = null;
                     } else {
                         return 'already exist';
                     }
@@ -927,7 +1015,8 @@ group by ps_pekerja");
                     $saatini = 'Kuliah di ' . $kuliahnow;
                 }
 
-            } if (!empty($request->file('skckUpload'))) {
+            }
+            if (!empty($request->file('skckUpload'))) {
                 $imgskck = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -946,13 +1035,14 @@ group by ps_pekerja");
                             $imgskck = $childPath . $nameskck;
                             $data->p_img_skck = $imgskck;
                         } else
-                            $imgskck = null;
+                        $imgskck = null;
                     } else {
                         return 'already exist';
                     }
                 }
 
-            } if (!empty($request->file('medicalUpload'))) {
+            }
+            if (!empty($request->file('medicalUpload'))) {
                 $imgmedical = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -971,13 +1061,14 @@ group by ps_pekerja");
                             $imgmedical = $childPath . $namemedical;
                             $data->p_img_medical = $imgmedical;
                         } else
-                            $imgmedical = null;
+                        $imgmedical = null;
                     } else {
                         return 'already exist';
                     }
                 }
 
-            } if (!empty($request->file('kkUpload'))) {
+            }
+            if (!empty($request->file('kkUpload'))) {
                 $imgkk = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -996,13 +1087,14 @@ group by ps_pekerja");
                             $imgkk = $childPath . $namekk;
                             $data->p_img_kk = $imgkk;
                         } else
-                            $imgkk = null;
+                        $imgkk = null;
                     } else {
                         return 'already exist';
                     }
                 }
 
-            } if (!empty($request->file('rekeningUpload'))) {
+            }
+            if (!empty($request->file('rekeningUpload'))) {
                 $imgrekening = null;
                 $tgl = carbon::now('Asia/Jakarta');
                 $folder = $tgl->year . $tgl->month . $tgl->timestamp;
@@ -1021,23 +1113,145 @@ group by ps_pekerja");
                             $imgrekening = $childPath . $namerekening;
                             $data->p_img_rekening = $imgrekening;
                         } else
-                            $imgrekening = null;
+                        $imgrekening = null;
                     } else {
                         return 'already exist';
                     }
                 }
-
+            }
+            if (!empty($request->file('bpjsUpload'))) {
+                $imgBpjs = null; //
+                $tgl = carbon::now('Asia/Jakarta');
+                $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+                $dir = 'image/uploads/pekerja/bpjs/' . $idPekerja; //
+                $this->deleteDir($dir);
+                $childPath = $dir . '/';
+                $path = $childPath;
+                $bpjs = $request->file('bpjsUpload'); //
+                $nameImage = null;
+                if ($bpjs != null) { //
+                    $nameImage = $folder . '-bpjs.' . $bpjs->getClientOriginalExtension(); //
+                    $data->p_img_bpjs = $childPath . $nameImage; //
+                    if (!File::exists($path)) {
+                        if (File::makeDirectory($path, 0777, true)) {
+                            $bpjs->move($path, $nameImage); //
+                            $imgBpjs = $childPath . $nameImage; //
+                            $data->p_img_bpjs = $imgBpjs; //
+                        } else
+                        $imgBpjs = null; //
+                    } else {
+                        return 'already exist';
+                    }
+                }
+            }
+            if (!empty($request->file('rbhUpload'))) {
+                $imgRbh = null; //
+                $tgl = carbon::now('Asia/Jakarta');
+                $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+                $dir = 'image/uploads/pekerja/rbh/' . $idPekerja; //
+                $this->deleteDir($dir);
+                $childPath = $dir . '/';
+                $path = $childPath;
+                $rbh = $request->file('rbhUpload'); //
+                $nameImage = null;
+                if ($rbh != null) { //
+                    $nameImage = $folder . '-rbh.' . $rbh->getClientOriginalExtension(); //
+                    $data->p_img_rbh = $childPath . $nameImage; //
+                    if (!File::exists($path)) {
+                        if (File::makeDirectory($path, 0777, true)) {
+                            $rbh->move($path, $nameImage); //
+                            $imgRbh = $childPath . $nameImage; //
+                            $data->p_img_rbh = $imgRbh; //
+                        } else
+                        $imgRbh = null; //
+                    } else {
+                        return 'already exist';
+                    }
+                }
+            }
+            if (!empty($request->file('rekpayrollUpload'))) {
+                $imgRekPayroll = null; //
+                $tgl = carbon::now('Asia/Jakarta');
+                $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+                $dir = 'image/uploads/pekerja/rekpayroll/' . $idPekerja; //
+                $this->deleteDir($dir);
+                $childPath = $dir . '/';
+                $path = $childPath;
+                $rekPayroll = $request->file('rekpayrollUpload'); //
+                $nameImage = null;
+                if ($rekPayroll != null) { //
+                    $nameImage = $folder . '-rekpayroll.' . $rekPayroll->getClientOriginalExtension(); //
+                    $data->p_img_rekpayroll = $childPath . $nameImage; //
+                    if (!File::exists($path)) {
+                        if (File::makeDirectory($path, 0777, true)) {
+                            $rekPayroll->move($path, $nameImage); //
+                            $imgRekPayroll = $childPath . $nameImage; //
+                            $data->p_img_rekpayroll = $imgRekPayroll; //
+                        } else
+                        $imgRekPayroll = null; //
+                    } else {
+                        return 'already exist';
+                    }
+                }
+            }
+            if (!empty($request->file('pkwtUpload'))) {
+                $imgPkwt = null; //
+                $tgl = carbon::now('Asia/Jakarta');
+                $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+                $dir = 'image/uploads/pekerja/pkwt/' . $idPekerja; //
+                $this->deleteDir($dir);
+                $childPath = $dir . '/';
+                $path = $childPath;
+                $pkwt = $request->file('pkwtUpload'); //
+                $nameImage = null;
+                if ($pkwt != null) { //
+                    $nameImage = $folder . '-pkwt.' . $pkwt->getClientOriginalExtension(); //
+                    $data->p_img_pkwt = $childPath . $nameImage; //
+                    if (!File::exists($path)) {
+                        if (File::makeDirectory($path, 0777, true)) {
+                            $pkwt->move($path, $nameImage); //
+                            $imgPkwt = $childPath . $nameImage; //
+                            $data->p_img_pkwt = $imgPkwt; //
+                        } else
+                        $imgPkwt = null; //
+                    } else {
+                        return 'already exist';
+                    }
+                }
+            }
+            if (!empty($request->file('skUpload'))) {
+                $imgSk = null; //
+                $tgl = carbon::now('Asia/Jakarta');
+                $folder = $tgl->year . $tgl->month . $tgl->timestamp;
+                $dir = 'image/uploads/pekerja/sk/' . $idPekerja; //
+                $this->deleteDir($dir);
+                $childPath = $dir . '/';
+                $path = $childPath;
+                $sk = $request->file('skUpload'); //
+                $nameImage = null;
+                if ($sk != null) { //
+                    $nameImage = $folder . '-sk.' . $sk->getClientOriginalExtension(); //
+                    $data->p_img_sk = $childPath . $nameImage; //
+                    if (!File::exists($path)) {
+                        if (File::makeDirectory($path, 0777, true)) {
+                            $sk->move($path, $nameImage); //
+                            $imgSk = $childPath . $nameImage; //
+                            $data->p_img_sk = $imgSk; //
+                        } else
+                        $imgSk = null; //
+                    } else {
+                        return 'already exist';
+                    }
+                }
             }
 
             if ($agama_lain != '' || $agama_lain != null) {
                 $agama = $agama_lain;
             }
 
-
             if ($saatini == 'kuliah') {
                 $saatini = 'Kuliah di ' . $kuliahnow;
             }
-
 
             d_pekerja::insert(array(
                 "p_id" => $id,
@@ -1096,6 +1310,11 @@ group by ps_pekerja");
                 "p_img_medical" => $data->p_img_medical,
                 "p_img_kk" => $data->p_img_kk,
                 "p_img_rekening" => $data->p_img_rekening,
+                "p_img_bpjs" => $data->p_img_bpjs,
+                "p_img_rbh" => $data->p_img_rbh,
+                "p_img_rekpayroll" => $data->p_img_rekpayroll,
+                "p_img_pkwt" => $data->p_img_pkwt,
+                "p_img_sk" => $data->p_img_sk,
                 "p_insert" => Carbon::now('Asia/Jakarta'),
                 "p_update" => Carbon::now('Asia/Jakarta')
             ));
@@ -1105,9 +1324,9 @@ group by ps_pekerja");
                 $temp = [];
                 if ($keterampilan[$i] != '' || $keterampilan != null) {
                     $temp = array(
-                        'pk_pekerja' => $id,
-                        'pk_detailid' => $i + 1,
-                        'pk_keterampilan' => strtoupper($keterampilan[$i])
+                    'pk_pekerja' => $id,
+                    'pk_detailid' => $i + 1,
+                    'pk_keterampilan' => strtoupper($keterampilan[$i])
                     );
                     array_push($addKeterampilan, $temp);
                 }
@@ -1119,16 +1338,16 @@ group by ps_pekerja");
                 $temp = [];
                 if ($bahasa[$i] == 'Lain' && $bahasa_lain != '') {
                     $temp = array(
-                        'pl_pekerja' => $id,
-                        'pl_detailid' => $i + 1,
-                        'pl_language' => strtoupper($bahasa_lain)
+                    'pl_pekerja' => $id,
+                    'pl_detailid' => $i + 1,
+                    'pl_language' => strtoupper($bahasa_lain)
                     );
                 } else {
                     if ($bahasa[$i] != null || $bahasa[$i] != '') {
                         $temp = array(
-                            'pl_pekerja' => $id,
-                            'pl_detailid' => $i + 1,
-                            'pl_language' => strtoupper($bahasa[$i])
+                        'pl_pekerja' => $id,
+                        'pl_detailid' => $i + 1,
+                        'pl_language' => strtoupper($bahasa[$i])
                         );
                     }
                 }
@@ -1141,10 +1360,10 @@ group by ps_pekerja");
                 $temp = [];
                 if ($sim[$i] != null || $sim[$i] != '') {
                     $temp = array(
-                        'ps_pekerja' => $id,
-                        'ps_detailid' => $i + 1,
-                        'ps_sim' => $sim[$i],
-                        'ps_note' => strtoupper($simket)
+                    'ps_pekerja' => $id,
+                    'ps_detailid' => $i + 1,
+                    'ps_sim' => $sim[$i],
+                    'ps_note' => strtoupper($simket)
                     );
                     array_push($addSIM, $temp);
                 }
@@ -1156,12 +1375,12 @@ group by ps_pekerja");
                 $temp = [];
                 if ($pengalaman_corp[$i] != null || $pengalaman_corp[$i] != '') {
                     $temp = array(
-                        'pp_pekerja' => $id,
-                        'pp_detailid' => $i + 1,
-                        'pp_perusahaan' => strtoupper($pengalaman_corp[$i]),
-                        'pp_start' => $start_pengalaman[$i],
-                        'pp_end' => $end_pengalaman[$i],
-                        'pp_jabatan' => strtoupper($jabatan_pengalaman[$i])
+                    'pp_pekerja' => $id,
+                    'pp_detailid' => $i + 1,
+                    'pp_perusahaan' => strtoupper($pengalaman_corp[$i]),
+                    'pp_start' => $start_pengalaman[$i],
+                    'pp_end' => $end_pengalaman[$i],
+                    'pp_jabatan' => strtoupper($jabatan_pengalaman[$i])
                     );
                     array_push($addPengalaman, $temp);
                 }
@@ -1173,16 +1392,16 @@ group by ps_pekerja");
                 $temp = [];
                 if ($referensi[$i] == 'Lain') {
                     $temp = array(
-                        'pr_pekerja' => $id,
-                        'pr_detailid' => $i + 1,
-                        'pr_referensi' => strtoupper($referensi_lain)
+                    'pr_pekerja' => $id,
+                    'pr_detailid' => $i + 1,
+                    'pr_referensi' => strtoupper($referensi_lain)
                     );
                 } else {
                     if ($referensi[$i] != null || $referensi[$i] != '') {
                         $temp = array(
-                            'pr_pekerja' => $id,
-                            'pr_detailid' => $i + 1,
-                            'pr_referensi' => strtoupper($referensi[$i])
+                        'pr_pekerja' => $id,
+                        'pr_detailid' => $i + 1,
+                        'pr_referensi' => strtoupper($referensi[$i])
                         );
                     }
                 }
@@ -1197,25 +1416,35 @@ group by ps_pekerja");
                     if ($childdate[$i] != "") {
                         $childdate[$i] = Carbon::createFromFormat('d/m/Y', $childdate[$i], 'Asia/Jakarta');
                         $temp = array(
-                            'pc_pekerja' => $id,
-                            'pc_detailid' => $i + 1,
-                            'pc_child_name' => strtoupper($childname[$i]),
-                            'pc_birth_date' => $childdate[$i],
-                            'pc_birth_place' => strtoupper($childplace[$i])
+                        'pc_pekerja' => $id,
+                        'pc_detailid' => $i + 1,
+                        'pc_child_name' => strtoupper($childname[$i]),
+                        'pc_birth_date' => $childdate[$i],
+                        'pc_birth_place' => strtoupper($childplace[$i])
                         );
                         array_push($addChild, $temp);
                     }
                 }
             }
             d_pekerja_child::insert($addChild);
+
+            // update notifikasi
+
             DB::commit();
             Session::flash('sukses', 'data pekerja anda berhasil diperbarui');
-            return redirect('manajemen-pekerja/data-pekerja');
-        } catch (\Exception $e) {
+            // return redirect('manajemen-pekerja/data-pekerja');
+            return response()->json([
+                'status' => 'berhasil'
+            ]);
+        }
+        catch (\Exception $e) {
             DB::rollback();
             Session::flash('gagal', 'data pekerja anda tidak dapat di perbarui');
-
-            return redirect('manajemen-pekerja/data-pekerja');
+            // return redirect('manajemen-pekerja/data-pekerja');
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ]);
         }
 
     }

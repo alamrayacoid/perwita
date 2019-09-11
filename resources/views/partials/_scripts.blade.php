@@ -15,6 +15,9 @@
     <script src="{{ asset('assets/js/inspinia.js') }}"></script>
     <script src="{{ asset('assets/vendors/pace/pace.min.js') }}"></script>
 
+    <!-- inputmask -->
+    <script src="{{asset('assets/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+
     <!-- Toastr -->
     <script src="{{ asset('assets/vendors/toastr/toastr.min.js') }}"></script>
 
@@ -76,6 +79,48 @@
 
     <!--<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 
+<!-- set inputmask -->
+<script type="text/javascript">
+    // mask digits
+    $('.digits').inputmask("currency", {
+        radixPoint: ",",
+        groupSeparator: ".",
+        digits: 0,
+        autoGroup: true,
+        prefix: '', //Space after $, this will not truncate the first character.
+        rightAlign: true,
+        autoUnmask: true,
+        nullable: false,
+        // unmaskAsNumber: true,
+    });
+    // mask rekening
+    $('.rek').inputmask("999 999 999 999 999 999 999", {
+        autoUnmask: true,
+        placeholder: ""
+    });
+
+    // mask telp-number
+    $('.hp').inputmask("9999 9999 9999 99", {
+        autoUnmask: true,
+        placeholder: ""
+    });
+
+    // mask nik
+    $('.nik').inputmask("999999 999999 9999", {
+        autoUnmask: true,
+        placeholder: ""
+    });
+
+    // mask npwp
+    $('.npwp').inputmask("99.999.999.9-999.999", {
+        autoUnmask: true,
+        placeholder: ""
+    });
+
+    // mask email
+    $('.email').inputmask({alias: "email"});
+
+</script>
 
 
     <script>
@@ -215,53 +260,50 @@
           })
       }
 
-        <?php $cekAksesApproval = App\Http\Controllers\AksesUser::checkAkses(55, 'read') ?>
-          @if($cekAksesApproval)
+      <?php $cekAksesApproval = App\Http\Controllers\AksesUser::checkAkses(55, 'read') ?>
+      @if($cekAksesApproval)
+      getApproval();
+      setInterval(function () {
           getApproval();
-          setInterval(function () {
-            getApproval();
-          }, 5000);
+      }, 5000);
 
-            function getApproval(){
-              var html = '';
-              $.ajax({
-                type: 'get',
-                url : '{{url("/approval/cekapproval")}}',
-                success : function(result){
-
+      function getApproval(){
+          var html = '';
+          $.ajax({
+              type: 'get',
+              url : '{{url("/approval/cekapproval")}}',
+              success : function(result){
                   if (result.status == 'kosong') {
-                    $('.approvaldown').css('height', '40px');
-                    $('#shownotif').html('<center>Tidak ada data approval</center>');
-                  } else {
-                    $('.approvaldown').css('height', '200px');
-                    $('.approvaldown').css('width', '350px');
+                      $('.approvaldown').css('height', '40px');
+                      $('#shownotif').html('<center>Tidak ada data approval</center>');
+                  } else if (result.length > 0) {
+                      $('.approvaldown').css('height', '200px');
+                      $('.approvaldown').css('width', '350px');
 
-                    $('#countnotif').text(result[0].count);
+                      $('#countnotif').text(result[0].count);
 
-                    for (var i = 0; i < result.length; i++) {
-                      html += '<div class="media-body">'+
-                                '<li>'+
-                              '<div class="dropdown-messages-box">'+
-                              '<div class="media-body">'+
-                                      '<a href="' + baseUrl + result[i].n_url + '" class="pull-left a-body" title="Lihat Daftar Approval '+result[i].n_fitur+' " style="text-decoration:none; color:black;">'+
-                                            '<small class="pull-right">'+result[i].n_insert+'</small>'+
-                                            ' <strong> '+result[i].n_fitur+' </strong><small> Anda memiliki '+result[i].n_qty+' permintaan approval '+result[i].n_fitur+' </small><br>'+
-                                      '</a>'+
-                                '</div>'+
-                              '</div>'+
-                                '</li>'+
-                              '</div>'+
-                              '<li class="divider" style="background-color:rgb(179, 179, 179);"></li>';
-                    }
+                      for (var i = 0; i < result.length; i++) {
+                          html += '<div class="media-body">'+
+                          '<li>'+
+                          '<div class="dropdown-messages-box">'+
+                          '<div class="media-body">'+
+                          '<a href="' + baseUrl + result[i].n_url + '" class="pull-left a-body" title="Lihat Daftar Approval '+result[i].n_fitur+' " style="text-decoration:none; color:black;">'+
+                          '<small class="pull-right">'+result[i].n_insert+'</small>'+
+                          ' <strong> '+result[i].n_fitur+' </strong><small> Anda memiliki '+result[i].n_qty+' permintaan approval '+result[i].n_fitur+' </small><br>'+
+                          '</a>'+
+                          '</div>'+
+                          '</div>'+
+                          '</li>'+
+                          '</div>'+
+                          '<li class="divider" style="background-color:rgb(179, 179, 179);"></li>';
+                      }
 
-                    $('#shownotif').html(html);
+                      $('#shownotif').html(html);
                   }
 
-                }
-              });
-            }
+              }
+          });
+      }
 
-        @endif
-
-
+      @endif
     </script>
