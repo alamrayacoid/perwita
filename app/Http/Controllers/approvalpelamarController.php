@@ -403,6 +403,11 @@ class approvalpelamarController extends Controller
             'p_img_medical' => $data[0]->p_img_medical,
             'p_img_kk' => $data[0]->p_img_kk,
             'p_img_rekening' => $data[0]->p_img_rekening,
+            "p_img_bpjs" => $data[0]->p_img_bpjs,
+            "p_img_rbh" => $data[0]->p_img_rbh,
+            "p_img_rekpayroll" => $data[0]->p_img_rekpayroll,
+            "p_img_pkwt" => $data[0]->p_img_pkwt,
+            "p_img_sk" => $data[0]->p_img_sk,
             'p_update' => $data[0]->p_update,
             'p_note' => $data[0]->p_note
         );
@@ -448,9 +453,9 @@ class approvalpelamarController extends Controller
         }
 
         if ($parameter == 'No') {
-            return view('approvalpelamar.print', compact('lempar', 'history', 'status'));
+            return view('approvalpelamar.print', compact('lempar', 'history'));
         } else {
-            return view('approvalpelamar.print1', compact('lempar', 'history', 'status'));
+            return view('approvalpelamar.print1', compact('lempar', 'history'));
         }
 
     }

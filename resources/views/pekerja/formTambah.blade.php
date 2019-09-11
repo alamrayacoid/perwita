@@ -1304,15 +1304,13 @@
             success: function(response){
                 waitingDialog.hide();
                 if (response.status == 'berhasil') {
-                    console.log('berhasil');
+                    location.reload();
                 }
                 else if (response.status == 'error') {
                     Command: toastr["warning"]("Terjadi kesalahan : " + response.message, "Peringatan !")
                 }
             },
             error: function(x, e) {
-                console.log('-- ' + x);
-                console.log('-- ' + e);
                 waitingDialog.hide();
                 if (x.status == 0) {
                     alert('ups !! gagal menghubungi server, harap cek kembali koneksi internet anda');

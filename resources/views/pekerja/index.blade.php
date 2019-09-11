@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="modal inmodal" id="modal-detail" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog" style="width : 1000px">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content animated fadeIn">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
@@ -148,134 +148,411 @@
                                 <h4 class="modal-title">Detail Pekerja</h4>
                             </div>
                             <div class="modal-body">
-                                <div class="form-group">
-                                    <div class="col-lg-3">
-                                        <h3>Nama Pekerja </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_name">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Nama Ibu </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_momname">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>No NIK </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_nik">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>No NIK Mitra </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_nik_mitra">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>No KPJ </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_kpj_no">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Jenis Kelamin </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_sex">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Nama Mitra </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="m_name">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tempat Lahir </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_birthplace">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Nama Divisi </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="md_name">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Lahir </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_birthdate">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Seleksi </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="mp_selection_date">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Alamat </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_address">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Masuk Kerja </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="mp_workin_date">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>No Hp </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_hp">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Awal Kontrak </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="mc_date">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>No KTP </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_ktp">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Kontrak Berakhir </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="mc_expired">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Tanggal Berlaku KTP </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="b_ktp">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Sisa Waktu Kontrak </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="sisa_kontrak">: -</h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3>Pendidikan </h3>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <h3 style="font-weight:normal;" id="p_education">: -</h3>
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Nama Pekerja </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_name"></h3>
+                                        </div>
                                     </div>
 
-
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Nama Ibu </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_momname">: -</h3>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-12">
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>No NIK </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_nik">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>No NIK Mitra </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_nik_mitra">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>No KPJ </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_kpj_no">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Jenis Kelamin </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_sex">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Nama Mitra </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="m_name">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tempat Lahir </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_birthplace">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Nama Divisi </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="md_name">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Lahir </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_birthdate">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Seleksi </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="mp_selection_date">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Alamat </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_address">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Masuk Kerja </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="mp_workin_date">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>No Hp </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_hp">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Awal Kontrak </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="mc_date">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>No KTP </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_ktp">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Kontrak Berakhir </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="mc_expired">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Tanggal Berlaku KTP </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="b_ktp">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Sisa Waktu Kontrak </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="sisa_kontrak">: -</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Pendidikan </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 style="font-weight:normal;" id="p_education">: -</h3>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
                                     <h3>&nbsp</h3>
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="row col-md-12">
+                                    <h3 style="font-style: italic; color: blue">Daftar Foto</h3>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>KTP </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnKtp">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnKtpP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Ijazah </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnIjazah">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnIjazahP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>SKCK </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnSkck">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnSkckP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Medical </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnMedical">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnMedicalP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>KK </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnKk">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnKkP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Rekening </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnRekening">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnRekeningP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>BPJS </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnBpjs">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnBpjsP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>RBH </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnRbh">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnRbhP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Rek. Payroll </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnRekPayroll">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnRekPayrollP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>PKWT </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnPkwt">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnPkwtP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row col-md-12">
+                                    <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>SK </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 text-center">
+                                            <button type="button" class="btn btn-info btn-sm" id="btnSk">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                            <button type="button" class="btn btn-warning btn-sm" id="btnSkP">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Cetak
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group col-sm-6 col-md-6">
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3>Ijazah </h3>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <button type="button" class="btn btn-info" id="btnIjazah">
+                                                <i class="fa fa-eye">&nbsp;</i>
+                                                Lihat
+                                            </button>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-md-12">
+                                    <h3>&nbsp</h3>
+                                </div>
+                                <div class="row col-md-12">
                                     <h3 style="font-style: italic; color: blue">History Pekerja</h3>
                                 </div>
                                 <form class="form-horizontal">
@@ -339,121 +616,133 @@
 @endsection
 
 @section('extra_scripts')
-  <script type="text/javascript">
-      var table;
-      var tablenon;
-      var tablecalon;
+    <script type="text/javascript">
+        var table;
+        var tablenon;
+        var tablecalon;
 
-      $('#tgl-resign').datepicker({
-        autoclose: true,
-        format: 'dd/mm/yyyy'
-      }).datepicker("setDate", "0");
+        $('#tgl-resign').datepicker({
+            autoclose: true,
+            format: 'dd/mm/yyyy'
+        }).datepicker("setDate", "0");
 
-      $(document).ready(function () {
-          setTimeout(function () {
-              $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-              });
-              table = $("#pekerja").DataTable({
-                  "search": {
-                      "caseInsensitive": true
-                  },
-                  processing: true,
-                  serverSide: true,
-                  "ajax": {
-                      "url": "{{ url('manajemen-pekerja/data-pekerja/table') }}",
-                      "type": "post"
-                  },
-                  columns: [
-                      {data: 'p_name', name: 'p_name'},
-                      {data: 'p_nip', name: 'p_nip'},
-                      {data: 'p_sex', name: 'p_sex'},
-                      {data: 'p_hp', name: 'p_hp'},
-                      {data: 'p_address', name: 'p_address'},
-                      {data: 'pm_status', name: 'pm_status'},
-                      {data: 'action', name: 'action', orderable: false, searchable: false}
-                  ],
-                  responsive: true,
-                  "pageLength": 10,
-                  "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
-                  //"scrollY": '50vh',
-                  //"scrollCollapse": true,
-                  "language": dataTableLanguage,
-              });
-              $('#pekerja').css('width', '100%').dataTable().fnAdjustColumnSizing();
-          }, 1500);
+        $(document).ready(function () {
+            setTimeout(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                table = $("#pekerja").DataTable({
+                    "search": {
+                        "caseInsensitive": true
+                    },
+                    processing: true,
+                    serverSide: true,
+                    "ajax": {
+                        "url": "{{ url('manajemen-pekerja/data-pekerja/table') }}",
+                        "type": "post"
+                    },
+                    columns: [
+                        {data: 'p_name', name: 'p_name'},
+                        {data: 'p_nip', name: 'p_nip'},
+                        {data: 'p_sex', name: 'p_sex'},
+                        {data: 'p_hp', name: 'p_hp'},
+                        {data: 'p_address', name: 'p_address'},
+                        {data: 'pm_status', name: 'pm_status'},
+                        {data: 'action', name: 'action', orderable: false, searchable: false}
+                    ],
+                    responsive: true,
+                    "pageLength": 10,
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    //"scrollY": '50vh',
+                    //"scrollCollapse": true,
+                    "language": dataTableLanguage,
+                });
+                $('#pekerja').css('width', '100%').dataTable().fnAdjustColumnSizing();
+            }, 1500);
 
-          setTimeout(function () {
-              $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-              });
-              tablenon = $("#pekerja-non").DataTable({
-                  "search": {
-                      "caseInsensitive": true
-                  },
-                  processing: true,
-                  serverSide: true,
-                  "ajax": {
-                      "url": "{{ url('manajemen-pekerja/data-pekerja/tablenon') }}",
-                      "type": "POST"
-                  },
-                  columns: [
-                      {data: 'p_name', name: 'p_name'},
-                      {data: 'p_nip', name: 'p_nip'},
-                      {data: 'p_sex', name: 'p_sex'},
-                      {data: 'p_hp', name: 'p_hp'},
-                      {data: 'p_address', name: 'p_address'},
-                      {data: 'pm_status', name: 'pm_status'},
-                      {data: 'action', name: 'action', orderable: false, searchable: false}
-                  ],
-                  responsive: true,
-                  "pageLength": 10,
-                  "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
-                  //"scrollY": '50vh',
-                  //"scrollCollapse": true,
-                  "language": dataTableLanguage,
-              });
-              $('#pekerja-non').css('width', '100%').dataTable().fnAdjustColumnSizing();
-          }, 3500);
+            setTimeout(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                tablenon = $("#pekerja-non").DataTable({
+                    "search": {
+                        "caseInsensitive": true
+                    },
+                    processing: true,
+                    serverSide: true,
+                    "ajax": {
+                        "url": "{{ url('manajemen-pekerja/data-pekerja/tablenon') }}",
+                        "type": "POST"
+                    },
+                    columns: [
+                    {data: 'p_name', name: 'p_name'},
+                    {data: 'p_nip', name: 'p_nip'},
+                    {data: 'p_sex', name: 'p_sex'},
+                    {data: 'p_hp', name: 'p_hp'},
+                    {data: 'p_address', name: 'p_address'},
+                    {data: 'pm_status', name: 'pm_status'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                    ],
+                    responsive: true,
+                    "pageLength": 10,
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    //"scrollY": '50vh',
+                    //"scrollCollapse": true,
+                    "language": dataTableLanguage,
+                });
+                $('#pekerja-non').css('width', '100%').dataTable().fnAdjustColumnSizing();
+            }, 3500);
 
-          setTimeout(function () {
-              $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                  }
-              });
-              tablecalon = $("#calon-pekerja").DataTable({
-                  "search": {
-                      "caseInsensitive": true
-                  },
-                  processing: true,
-                  serverSide: true,
-                  "ajax": {
-                      "url": "{{ url('manajemen-pekerja/data-pekerja/tablecalon') }}",
-                      "type": "POST"
-                  },
-                  columns: [
-                      {data: 'p_name', name: 'p_name'},
-                      {data: 'p_sex', name: 'p_sex'},
-                      {data: 'p_hp', name: 'p_hp'},
-                      {data: 'p_address', name: 'p_address'},
-                      {data: 'pm_status', name: 'pm_status'},
-                      {data: 'action', name: 'action', orderable: false, searchable: false}
-                  ],
-                  responsive: true,
-                  "pageLength": 10,
-                  "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
-                  //"scrollY": '50vh',
-                  //"scrollCollapse": true,
-                  "language": dataTableLanguage,
-              });
-              $('#calon-pekerja').css('width', '100%').dataTable().fnAdjustColumnSizing();
-          }, 2500);
-      });
+            setTimeout(function () {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                tablecalon = $("#calon-pekerja").DataTable({
+                    "search": {
+                        "caseInsensitive": true
+                    },
+                    processing: true,
+                    serverSide: true,
+                    "ajax": {
+                        "url": "{{ url('manajemen-pekerja/data-pekerja/tablecalon') }}",
+                        "type": "POST"
+                    },
+                    columns: [
+                    {data: 'p_name', name: 'p_name'},
+                    {data: 'p_sex', name: 'p_sex'},
+                    {data: 'p_hp', name: 'p_hp'},
+                    {data: 'p_address', name: 'p_address'},
+                    {data: 'pm_status', name: 'pm_status'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false}
+                    ],
+                    responsive: true,
+                    "pageLength": 10,
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    //"scrollY": '50vh',
+                    //"scrollCollapse": true,
+                    "language": dataTableLanguage,
+                });
+                $('#calon-pekerja').css('width', '100%').dataTable().fnAdjustColumnSizing();
+            }, 2500);
+        });
+
+        function openImage(urlImage) {
+            if (urlImage == '' || urlImage == null) {
+                alert('Foto belum diupload !');
+                return false;
+            }
+            let newUrl = baseUrl + '/' + urlImage;
+            window.open(newUrl, '_blank');
+        }
+        function printImage(id, type) {
+            window.open('{{ url("/manajemen-pekerja/data-pekerja/print-foto") }}' + '/' + id + '/' + type, 'Cetak Foto');
+        }
 
 
       function tambah() {
@@ -633,28 +922,118 @@
                       sisa_kontrak = "-";
                   }
 
-                  // console.log(sisa_kontrak);
-                  // console.log(mc_date);
-                  $('#p_nik_mitra').html(": " + p_nip_mitra);
-                  $('#p_nik').html(": " + p_nip);
-                  $('#p_name').html(": " + p_name);
-                  $('#p_sex').html(": " + p_sex);
-                  $('#p_birthplace').html(": " + p_birthplace);
-                  $('#p_birthdate').html(": " + p_birthdate);
-                  $('#p_address').html(": " + p_address);
-                  $('#p_hp').html(": " + p_hp);
-                  $('#p_ktp').html(": " + p_ktp);
-                  $('#b_ktp').html(": " + b_ktp);
-                  $('#p_education').html(": " + p_education);
-                  $('#p_momname').html(": " + p_momname);
-                  $('#p_kpj_no').html(": " + p_kpj_no);
-                  $('#m_name').html(": " + m_name);
-                  $('#md_name').html(": " + md_name);
-                  $('#mp_selection_date').html(": " + mp_selection_date);
-                  $('#mp_workin_date').html(": " + mp_workin_date);
-                  $('#mc_date').html(": " + mc_date);
-                  $('#mc_expired').html(": " + mc_expired);
-                  $('#sisa_kontrak').html(": " + sisa_kontrak);
+                  $('#p_nik_mitra').html(p_nip_mitra);
+                  $('#p_nik').html(p_nip);
+                  $('#p_name').html(p_name);
+                  $('#p_sex').html(p_sex);
+                  $('#p_birthplace').html(p_birthplace);
+                  $('#p_birthdate').html(p_birthdate);
+                  $('#p_address').html(p_address);
+                  $('#p_hp').html(p_hp);
+                  $('#p_ktp').html(p_ktp);
+                  $('#b_ktp').html(b_ktp);
+                  $('#p_education').html(p_education);
+                  $('#p_momname').html(p_momname);
+                  $('#p_kpj_no').html(p_kpj_no);
+                  $('#m_name').html(m_name);
+                  $('#md_name').html(md_name);
+                  $('#mp_selection_date').html(mp_selection_date);
+                  $('#mp_workin_date').html(mp_workin_date);
+                  $('#mc_date').html(mc_date);
+                  $('#mc_expired').html(mc_expired);
+                  $('#sisa_kontrak').html(sisa_kontrak);
+
+                  $('#btnKtp').off();
+                  $('#btnKtpP').off();
+                  $('#btnIjazah').off();
+                  $('#btnIjazahP').off();
+                  $('#btnSkck').off();
+                  $('#btnSkckP').off();
+                  $('#btnMedical').off();
+                  $('#btnMedicalP').off();
+                  $('#btnKk').off();
+                  $('#btnKkP').off();
+                  $('#btnRekening').off();
+                  $('#btnRekeningP').off();
+                  $('#btnBpjs').off();
+                  $('#btnBpjsP').off();
+                  $('#btnRbh').off();
+                  $('#btnRbhP').off();
+                  $('#btnRekPayroll').off();
+                  $('#btnRekPayrollP').off();
+                  $('#btnPkwt').off();
+                  $('#btnPkwtP').off();
+                  $('#btnSk').off();
+                  $('#btnSkP').off();
+
+                  // open image in new tab
+                  $('#btnKtp').on('click', function() {
+                      openImage(data[0].p_img_ktp);
+                  });
+                  $('#btnKtpP').on('click', function() {
+                      printImage(id, 'ktp');
+                  });
+                  $('#btnIjazah').on('click', function() {
+                      openImage(data[0].p_img_ijazah)
+                  });
+                  $('#btnIjazahP').on('click', function() {
+                      printImage(id, 'ijazah');
+                  });
+                  $('#btnSkck').on('click', function() {
+                      openImage(data[0].p_img_skck);
+                  });
+                  $('#btnSkckP').on('click', function() {
+                      printImage(id, 'skck');
+                  });
+                  $('#btnMedical').on('click', function() {
+                      openImage(data[0].p_img_medical);
+                  });
+                  $('#btnMedicalP').on('click', function() {
+                      printImage(id, 'medical');
+                  });
+                  $('#btnKk').on('click', function() {
+                      openImage(data[0].p_img_kk);
+                  });
+                  $('#btnKkP').on('click', function() {
+                      printImage(id, 'kk');
+                  });
+                  $('#btnRekening').on('click', function() {
+                      openImage(data[0].p_img_rekening);
+                  });
+                  $('#btnRekeningP').on('click', function() {
+                      printImage(id, 'rekening');
+                  });
+                  $('#btnBpjs').on('click', function() {
+                      openImage(data[0].p_img_bpjs);
+                  });
+                  $('#btnBpjsP').on('click', function() {
+                      printImage(id, 'bpjs');
+                  });
+                  $('#btnRbh').on('click', function() {
+                      openImage(data[0].p_img_rbh);
+                  });
+                  $('#btnRbhP').on('click', function() {
+                      printImage(id, 'rbh');
+                  });
+                  $('#btnRekPayroll').on('click', function() {
+                      openImage(data[0].p_img_rekpayroll);
+                  });
+                  $('#btnRekPayrollP').on('click', function() {
+                      printImage(id, 'rekpayroll');
+                  });
+                  $('#btnPkwt').on('click', function() {
+                      openImage(data[0].p_img_pkwt);
+                  });
+                  $('#btnPkwtP').on('click', function() {
+                      printImage(id, 'pkwt');
+                  });
+                  $('#btnSk').on('click', function() {
+                      openImage(data[0].p_img_sk);
+                  });
+                  $('#btnSkP').on('click', function() {
+                      printImage(id, 'sk');
+                  });
+
 
               }
           })

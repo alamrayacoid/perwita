@@ -177,6 +177,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::POST('manajemen-pekerja/data-pekerja/perbarui/{id}','pekerjaController@perbarui');
     Route::get('manajemen-pekerja/data-pekerja/hapus/{id}','pekerjaController@hapus');
     Route::get('manajemen-pekerja/data-pekerja/detail','pekerjaController@detail');
+    Route::get('manajemen-pekerja/data-pekerja/print-foto/{id}/{type}','pekerjaController@printFoto')->name('pekerja.printFoto');
     Route::get('manajemen-pekerja/data-pekerja/resign','pekerjaController@resign');
     Route::get('manajemen-pekerja/data-pekerja/detail-mutasi','pekerjaController@detail_mutasi');
 

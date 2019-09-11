@@ -778,7 +778,6 @@ class pekerjaController extends Controller
             //     , 'p_img_kk'
             //     , 'p_img_rekening')
             ->get();
-
         $child = DB::table('d_pekerja_child')
             ->select('pc_child_name', 'pc_birth_place', 'pc_birth_date')
             ->where('pc_pekerja', '=', $id)
@@ -820,6 +819,7 @@ class pekerjaController extends Controller
             from d_pekerja_sim dps
             where ps_pekerja = '$id'
             group by ps_pekerja");
+// dd($pekerja[0], 's');
         return view('pekerja.formEdit', compact('id', 'pekerja', 'jabatan', 'child', 'keterampilan', 'bahasa', 'pengalaman', 'referensi', 'sim'));
     }
 
@@ -1428,7 +1428,17 @@ class pekerjaController extends Controller
             }
             d_pekerja_child::insert($addChild);
 
-            // update notifikasi
+            $countpelamar = DB::table('d_pekerja')
+                ->where('p_status_approval', null)
+                ->get();
+
+            // update notif
+            DB::table('d_notifikasi')
+                ->where('n_fitur', 'Calon Pekerja')
+                ->update([
+                    'n_qty' => count($countpelamar),
+                    'n_insert' => Carbon::now('Asia/Jakarta')
+                ]);
 
             DB::commit();
             Session::flash('sukses', 'data pekerja anda berhasil diperbarui');
@@ -1507,6 +1517,7 @@ class pekerjaController extends Controller
             $data[] = (array)$r;
         }
         $i = 0;
+
         foreach ($data as $key) {
             // add new data
             Carbon::setLocale('id');
@@ -1536,9 +1547,21 @@ class pekerjaController extends Controller
             $i++;
         }
 
-        // dd($data);
         echo json_encode($data);
 
+    }
+
+    public function printFoto($id, $type)
+    {
+        $img = 'p_img_' . $type;
+
+        // dd($id, $type, $img);
+        $pekerja = d_pekerja::where('p_id', $id)
+            ->select($img)
+            ->first();
+        $pekerja->img = $pekerja->$img;
+
+        return view('pekerja.cetakFoto', compact('pekerja'));
     }
 
     public function detail_mutasi(Request $request)

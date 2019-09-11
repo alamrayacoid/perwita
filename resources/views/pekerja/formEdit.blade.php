@@ -712,8 +712,8 @@
                                 <input type="text" class="form-control" id="wifelahir" name="wifelahir" placeholder="Tempat Lahir" style="text-transform:uppercase" value="{{$pekerja[0]->p_wife_birthplace}}">
                             </div>
                             <div class="col-sm-2">
-                                @if ($pekerja[0]->p_wife_birth != '0000-00-00')
-                                <input type="text" class="form-control" id="wifettl" name="wifettl" placeholder="Tanggal" value="{{Carbon\Carbon::createFromFormat('Y-m-d', $pekerja[0]->p_wife_birth)->format('d/m/Y')}}">
+                                @if ($pekerja[0]->p_wife_birth != '0000-00-00' && $pekerja[0]->p_wife_birth != '' && $pekerja[0]->p_wife_birth != null)
+                                <input type="text" class="form-control" id="wifettl" name="wifettl" placeholder="Tanggal" value="{{ Carbon\Carbon::createFromFormat('Y-m-d', $pekerja[0]->p_wife_birth)->format('d/m/Y') }}">
                                 @else
                                 <input type="text" class="form-control" id="wifettl" name="wifettl" placeholder="Tanggal" value="">
                                 @endif
@@ -729,7 +729,11 @@
                                     <input type="text" class="form-control childplace" name="childplace[]" placeholder="Tempat Lahir" style="text-transform:uppercase" value="{{$child[0]->pc_birth_place}}">
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[0]->pc_birth_date)->format('d/m/Y')}}">
+                                    @if($child[0]->pc_birth_date != '0000-00-00' && $child[0]->pc_birth_date != '' &&  $child[0]->pc_birth_date != null)
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[0]->pc_birth_date)->format('d/m/Y')}}">
+                                    @else
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal">
+                                    @endif
                                 </div>
                                 @else
                                 <div class="col-sm-4">
@@ -753,10 +757,10 @@
                                     <input type="text" class="form-control childplace" name="childplace[]" placeholder="Tempat Lahir" style="text-transform:uppercase" value="{{$child[1]->pc_birth_place}}">
                                 </div>
                                 <div class="col-sm-2">
-                                    @if($child[1]->pc_birth_date != '0000-00-00')
-                                    <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[1]->pc_birth_date)->format('d/m/Y')}}">
+                                    @if($child[1]->pc_birth_date != '0000-00-00' && $child[1]->pc_birth_date != '' && $child[1]->pc_birth_date != null)
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[1]->pc_birth_date)->format('d/m/Y')}}">
                                     @else
-                                    <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="">
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="">
                                     @endif
                                 </div>
                               @else
@@ -782,9 +786,12 @@
                                     <input type="text" class="form-control childplace" name="childplace[]" placeholder="Tempat Lahir" style="text-transform:uppercase" value="{{$child[2]->pc_birth_place}}">
                                 </div>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[2]->pc_birth_date)->format('d/m/Y')}}">
+                                    @if($child[2]->pc_birth_date != '0000-00-00' && $child[2]->pc_birth_date != '' && $child[2]->pc_birth_date != null)
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal" value="{{Carbon\Carbon::parse($child[2]->pc_birth_date)->format('d/m/Y')}}">
+                                    @else
+                                        <input type="text" class="form-control childdate" name="childdate[]" placeholder="Tanggal">
+                                    @endif
                                 </div>
-                                @else
                                 <label class="col-sm-2 control-label">Anak 3</label>
                                 <div class="col-sm-4">
                                     <input type="text" class="form-control childname" name="childname[]" placeholder="Nama Anak 3" style="text-transform:uppercase">
@@ -798,6 +805,7 @@
                                 @endif
                             </div>
                             <div class="hr-line-dashed"></div>
+                            <!-- end child -->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Nama Ayah</label>
                                 <div class="col-sm-4">
@@ -1646,15 +1654,13 @@ $(document).ready(function(){
             success: function(response){
                 waitingDialog.hide();
                 if (response.status == 'berhasil') {
-                    console.log('berhasil');
+                    location.reload();
                 }
                 else if (response.status == 'error') {
                     Command: toastr["warning"]("Terjadi kesalahan : " + response.message, "Peringatan !")
                 }
             },
             error: function(x, e) {
-                console.log('-- ' + x);
-                console.log('-- ' + e);
                 waitingDialog.hide();
                 if (x.status == 0) {
                     alert('ups !! gagal menghubungi server, harap cek kembali koneksi internet anda');
