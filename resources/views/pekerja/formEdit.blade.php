@@ -81,8 +81,9 @@
                             <label class="col-sm-2 control-label">Jabatan</label>
                             <div class="col-sm-10">
                                 <select class="form-control m-b" id="jabatan-pelamar" name="jabatan_pelamar">
+<!-- if pekerja is 'calon' else if 'pekerja aktif' -->
                                   @foreach($jabatan as $data)
-                                      @if($pekerja[0]->p_jabatan == $data->jp_id)
+                                      @if($pekerja[0]->p_jabatan_lamaran == $data->jp_id)
                                       <option value="{{ $data->jp_id }}" selected>{{$data->jp_name}}</option>
                                       @else
                                       <option value="{{ $data->jp_id }}">{{$data->jp_name}}</option>
