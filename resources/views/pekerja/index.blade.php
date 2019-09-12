@@ -439,7 +439,7 @@
                                     </div>
                                     <div class="form-group col-sm-6 col-md-6">
                                         <div class="col-sm-6 col-md-6">
-                                            <h3>Rekening </h3>
+                                            <h3>Rekening Dapan </h3>
                                         </div>
                                         <div class="col-sm-6 col-md-6 text-center">
                                             <button type="button" class="btn btn-info btn-sm" id="btnRekening">
@@ -490,7 +490,7 @@
                                 <div class="row col-md-12">
                                     <div class="form-group col-sm-6 col-md-6">
                                         <div class="col-sm-6 col-md-6">
-                                            <h3>Rek. Payroll </h3>
+                                            <h3>Rekening Payroll </h3>
                                         </div>
                                         <div class="col-sm-6 col-md-6 text-center">
                                             <button type="button" class="btn btn-info btn-sm" id="btnRekPayroll">
