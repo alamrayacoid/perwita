@@ -1015,11 +1015,11 @@
 
                             <div class="row col-sm-12 uploadRow">
                                 <div class="hr-line-dashed"></div>
-                                <label class="col-sm-2 control-label">Foto Rekening (bagian depan)</label>
+                                <label class="col-sm-2 control-label">Foto Rekening dapan ( Dana Pensiun )</label>
                                 <div class="col-sm-4">
                                     <label class="btn btn-default" for="uploadrekening">
                                         <input id="uploadrekening" name="rekeningUpload" class="uploadrekening" type="file" style="display:none;">
-                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Rekening
+                                        <i class="fa fa-upload margin-correction"></i>Upload Foto Rekening dapan
                                     </label>
                                 </div>
                                 <div class="col-sm-6 rekening-holder holder" id="rekening-holder">
