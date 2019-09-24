@@ -928,7 +928,6 @@ class pekerjaController extends Controller
             $ukuransepatu = $request->ukuransepatu;
             $sex = $request->sex;
 
-
             if (!empty($request->file('imageUpload'))) {
                 $imgPath = null;
                 $tgl = carbon::now('Asia/Jakarta');
@@ -1319,114 +1318,126 @@ class pekerjaController extends Controller
                 "p_update" => Carbon::now('Asia/Jakarta')
             ));
 
-            $addKeterampilan = [];
-            for ($i = 0; $i < count($keterampilan); $i++) {
-                $temp = [];
-                if ($keterampilan[$i] != '' || $keterampilan != null) {
-                    $temp = array(
-                    'pk_pekerja' => $id,
-                    'pk_detailid' => $i + 1,
-                    'pk_keterampilan' => strtoupper($keterampilan[$i])
-                    );
-                    array_push($addKeterampilan, $temp);
-                }
-            }
-            d_pekerja_keterampilan::insert($addKeterampilan);
-
-            $addBahasa = [];
-            for ($i = 0; $i < count($bahasa); $i++) {
-                $temp = [];
-                if ($bahasa[$i] == 'Lain' && $bahasa_lain != '') {
-                    $temp = array(
-                    'pl_pekerja' => $id,
-                    'pl_detailid' => $i + 1,
-                    'pl_language' => strtoupper($bahasa_lain)
-                    );
-                } else {
-                    if ($bahasa[$i] != null || $bahasa[$i] != '') {
+            if (is_countable($keterampilan)) {
+                $addKeterampilan = [];
+                for ($i = 0; $i < count($keterampilan); $i++) {
+                    $temp = [];
+                    if ($keterampilan[$i] != '' || $keterampilan != null) {
                         $temp = array(
-                        'pl_pekerja' => $id,
-                        'pl_detailid' => $i + 1,
-                        'pl_language' => strtoupper($bahasa[$i])
+                            'pk_pekerja' => $id,
+                            'pk_detailid' => $i + 1,
+                            'pk_keterampilan' => strtoupper($keterampilan[$i])
                         );
+                        array_push($addKeterampilan, $temp);
                     }
                 }
-                array_push($addBahasa, $temp);
+                d_pekerja_keterampilan::insert($addKeterampilan);
             }
-            d_pekerja_language::insert($addBahasa);
 
-            $addSIM = [];
-            for ($i = 0; $i < count($sim); $i++) {
-                $temp = [];
-                if ($sim[$i] != null || $sim[$i] != '') {
-                    $temp = array(
-                    'ps_pekerja' => $id,
-                    'ps_detailid' => $i + 1,
-                    'ps_sim' => $sim[$i],
-                    'ps_note' => strtoupper($simket)
-                    );
-                    array_push($addSIM, $temp);
-                }
-            }
-            d_pekerja_sim::insert($addSIM);
-
-            $addPengalaman = [];
-            for ($i = 0; $i < count($pengalaman_corp); $i++) {
-                $temp = [];
-                if ($pengalaman_corp[$i] != null || $pengalaman_corp[$i] != '') {
-                    $temp = array(
-                    'pp_pekerja' => $id,
-                    'pp_detailid' => $i + 1,
-                    'pp_perusahaan' => strtoupper($pengalaman_corp[$i]),
-                    'pp_start' => $start_pengalaman[$i],
-                    'pp_end' => $end_pengalaman[$i],
-                    'pp_jabatan' => strtoupper($jabatan_pengalaman[$i])
-                    );
-                    array_push($addPengalaman, $temp);
-                }
-            }
-            d_pekerja_pengalaman::insert($addPengalaman);
-
-            $addReferensi = [];
-            for ($i = 0; $i < count($referensi); $i++) {
-                $temp = [];
-                if ($referensi[$i] == 'Lain') {
-                    $temp = array(
-                    'pr_pekerja' => $id,
-                    'pr_detailid' => $i + 1,
-                    'pr_referensi' => strtoupper($referensi_lain)
-                    );
-                } else {
-                    if ($referensi[$i] != null || $referensi[$i] != '') {
+            if (is_countable($bahasa)) {
+                $addBahasa = [];
+                for ($i = 0; $i < count($bahasa); $i++) {
+                    $temp = [];
+                    if ($bahasa[$i] == 'Lain' && $bahasa_lain != '') {
                         $temp = array(
-                        'pr_pekerja' => $id,
-                        'pr_detailid' => $i + 1,
-                        'pr_referensi' => strtoupper($referensi[$i])
+                            'pl_pekerja' => $id,
+                            'pl_detailid' => $i + 1,
+                            'pl_language' => strtoupper($bahasa_lain)
                         );
+                    } else {
+                        if ($bahasa[$i] != null || $bahasa[$i] != '') {
+                            $temp = array(
+                                'pl_pekerja' => $id,
+                                'pl_detailid' => $i + 1,
+                                'pl_language' => strtoupper($bahasa[$i])
+                            );
+                        }
+                    }
+                    array_push($addBahasa, $temp);
+                }
+                d_pekerja_language::insert($addBahasa);
+            }
+
+            if (is_countable($sim)) {
+                $addSIM = [];
+                for ($i = 0; $i < count($sim); $i++) {
+                    $temp = [];
+                    if ($sim[$i] != null || $sim[$i] != '') {
+                        $temp = array(
+                            'ps_pekerja' => $id,
+                            'ps_detailid' => $i + 1,
+                            'ps_sim' => $sim[$i],
+                            'ps_note' => strtoupper($simket)
+                        );
+                        array_push($addSIM, $temp);
                     }
                 }
-                array_push($addReferensi, $temp);
+                d_pekerja_sim::insert($addSIM);
             }
-            d_pekerja_referensi::insert($addReferensi);
 
-            $addChild = [];
-            for ($i = 0; $i < count($childname); $i++) {
-                $temp = [];
-                if ($childname[$i] != '' || $childname[$i] != null || $childname[$i] != ' ' || $childname[$i] != "") {
-                    if ($childdate[$i] != "") {
-                        $childdate[$i] = Carbon::createFromFormat('d/m/Y', $childdate[$i], 'Asia/Jakarta');
+            if (is_countable($pengalaman_corp)) {
+                $addPengalaman = [];
+                for ($i = 0; $i < count($pengalaman_corp); $i++) {
+                    $temp = [];
+                    if ($pengalaman_corp[$i] != null || $pengalaman_corp[$i] != '') {
                         $temp = array(
-                        'pc_pekerja' => $id,
-                        'pc_detailid' => $i + 1,
-                        'pc_child_name' => strtoupper($childname[$i]),
-                        'pc_birth_date' => $childdate[$i],
-                        'pc_birth_place' => strtoupper($childplace[$i])
+                            'pp_pekerja' => $id,
+                            'pp_detailid' => $i + 1,
+                            'pp_perusahaan' => strtoupper($pengalaman_corp[$i]),
+                            'pp_start' => $start_pengalaman[$i],
+                            'pp_end' => $end_pengalaman[$i],
+                            'pp_jabatan' => strtoupper($jabatan_pengalaman[$i])
                         );
-                        array_push($addChild, $temp);
+                        array_push($addPengalaman, $temp);
                     }
                 }
+                d_pekerja_pengalaman::insert($addPengalaman);
             }
-            d_pekerja_child::insert($addChild);
+
+            if (is_countable($referensi)) {
+                $addReferensi = [];
+                for ($i = 0; $i < count($referensi); $i++) {
+                    $temp = [];
+                    if ($referensi[$i] == 'Lain') {
+                        $temp = array(
+                            'pr_pekerja' => $id,
+                            'pr_detailid' => $i + 1,
+                            'pr_referensi' => strtoupper($referensi_lain)
+                        );
+                    } else {
+                        if ($referensi[$i] != null || $referensi[$i] != '') {
+                            $temp = array(
+                                'pr_pekerja' => $id,
+                                'pr_detailid' => $i + 1,
+                                'pr_referensi' => strtoupper($referensi[$i])
+                            );
+                        }
+                    }
+                    array_push($addReferensi, $temp);
+                }
+                d_pekerja_referensi::insert($addReferensi);
+            }
+
+            if (is_countable($childname)) {
+                $addChild = [];
+                for ($i = 0; $i < count($childname); $i++) {
+                    $temp = [];
+                    if ($childname[$i] != '' || $childname[$i] != null || $childname[$i] != ' ' || $childname[$i] != "") {
+                        if ($childdate[$i] != "") {
+                            $childdate[$i] = Carbon::createFromFormat('d/m/Y', $childdate[$i], 'Asia/Jakarta');
+                            $temp = array(
+                                'pc_pekerja' => $id,
+                                'pc_detailid' => $i + 1,
+                                'pc_child_name' => strtoupper($childname[$i]),
+                                'pc_birth_date' => $childdate[$i],
+                                'pc_birth_place' => strtoupper($childplace[$i])
+                            );
+                            array_push($addChild, $temp);
+                        }
+                    }
+                }
+                d_pekerja_child::insert($addChild);
+            }
 
             $countpelamar = DB::table('d_pekerja')
                 ->where('p_status_approval', null)
