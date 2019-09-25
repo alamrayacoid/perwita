@@ -1318,7 +1318,7 @@ class pekerjaController extends Controller
                 "p_update" => Carbon::now('Asia/Jakarta')
             ));
 
-            if (is_countable($keterampilan)) {
+            if (!is_null($keterampilan)) {
                 $addKeterampilan = [];
                 for ($i = 0; $i < count($keterampilan); $i++) {
                     $temp = [];
@@ -1334,7 +1334,7 @@ class pekerjaController extends Controller
                 d_pekerja_keterampilan::insert($addKeterampilan);
             }
 
-            if (is_countable($bahasa)) {
+            if (!is_null($bahasa)) {
                 $addBahasa = [];
                 for ($i = 0; $i < count($bahasa); $i++) {
                     $temp = [];
@@ -1358,7 +1358,7 @@ class pekerjaController extends Controller
                 d_pekerja_language::insert($addBahasa);
             }
 
-            if (is_countable($sim)) {
+            if (!is_null($sim)) {
                 $addSIM = [];
                 for ($i = 0; $i < count($sim); $i++) {
                     $temp = [];
@@ -1375,7 +1375,7 @@ class pekerjaController extends Controller
                 d_pekerja_sim::insert($addSIM);
             }
 
-            if (is_countable($pengalaman_corp)) {
+            if (!is_null($pengalaman_corp)) {
                 $addPengalaman = [];
                 for ($i = 0; $i < count($pengalaman_corp); $i++) {
                     $temp = [];
@@ -1394,7 +1394,7 @@ class pekerjaController extends Controller
                 d_pekerja_pengalaman::insert($addPengalaman);
             }
 
-            if (is_countable($referensi)) {
+            if (!is_null($referensi)) {
                 $addReferensi = [];
                 for ($i = 0; $i < count($referensi); $i++) {
                     $temp = [];
@@ -1418,7 +1418,7 @@ class pekerjaController extends Controller
                 d_pekerja_referensi::insert($addReferensi);
             }
 
-            if (is_countable($childname)) {
+            if (!is_null($childname)) {
                 $addChild = [];
                 for ($i = 0; $i < count($childname); $i++) {
                     $temp = [];
