@@ -366,7 +366,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnKtpP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -381,7 +381,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnIjazahP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -399,7 +399,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnSkckP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -414,7 +414,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnMedicalP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -432,7 +432,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnKkP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -447,7 +447,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnRekeningP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -465,7 +465,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnBpjsP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -480,7 +480,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnRbhP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -498,7 +498,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnRekPayrollP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -513,7 +513,7 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnPkwtP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
@@ -531,22 +531,11 @@
                                                 Lihat
                                             </button>
                                             <button type="button" class="btn btn-warning btn-sm" id="btnSkP">
-                                                <i class="fa fa-eye">&nbsp;</i>
+                                                <i class="fa fa-print">&nbsp;</i>
                                                 Cetak
                                             </button>
                                         </div>
                                     </div>
-                                    <!-- <div class="form-group col-sm-6 col-md-6">
-                                        <div class="col-sm-6 col-md-6">
-                                            <h3>Ijazah </h3>
-                                        </div>
-                                        <div class="col-sm-6 col-md-6">
-                                            <button type="button" class="btn btn-info" id="btnIjazah">
-                                                <i class="fa fa-eye">&nbsp;</i>
-                                                Lihat
-                                            </button>
-                                        </div>
-                                    </div> -->
                                 </div>
 
                                 <div class="col-md-12">
